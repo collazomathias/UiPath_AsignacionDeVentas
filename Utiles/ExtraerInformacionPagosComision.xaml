@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1150,1766</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1130,1768</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ExtraerInformacionPagosComision_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -106,19 +106,19 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ExtraerInformacionPagosComision" sap:VirtualizedContainerService.HintSize="972,1701" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ExtraerInformacionPagosComision" sap:VirtualizedContainerService.HintSize="972,1703" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use chrome browser" sap:VirtualizedContainerService.HintSize="930,1613" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="e8922248-cdf6-4ac5-a399-6982520befab" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use chrome browser" sap:VirtualizedContainerService.HintSize="930,1615" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="e8922248-cdf6-4ac5-a399-6982520befab" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="896,1396" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="896,1398" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -165,9 +165,9 @@
                 </uix:TargetAnchorable>
               </uix:NCheckState.Target>
             </uix:NCheckState>
-            <uix:NCheckState DisplayName="Check app state - &quot;Pagos comision&quot; table" sap:VirtualizedContainerService.HintSize="854,775" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="e8922248-cdf6-4ac5-a399-6982520befab" Timeout="30" Version="V3">
+            <uix:NCheckState DisplayName="Check app state - &quot;Pagos comision&quot; table" sap:VirtualizedContainerService.HintSize="854,777" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="e8922248-cdf6-4ac5-a399-6982520befab" Timeout="30" Version="V3">
               <uix:NCheckState.IfExists>
-                <Sequence DisplayName="If target appears" sap:VirtualizedContainerService.HintSize="400,558" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                <Sequence DisplayName="If target appears" sap:VirtualizedContainerService.HintSize="400,560" sap2010:WorkflowViewState.IdRef="Sequence_8">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>

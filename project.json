@@ -1,11 +1,11 @@
 {
-  "name": "AsignacionDeVentas",
-  "description": "Proyecto de Iniciativa - Asignación de ventas.",
+  "name": "Asignación de ventas",
+  "description": "Blank process",
   "main": "Main.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[2.17.0-preview]",
     "UiPath.GSuite.Activities": "[2.0.0-preview]",
-    "UiPath.MicrosoftOffice365.Activities": "[2.0.0-preview]",
+    "UiPath.Mail.Activities": "[1.18.2]",
     "UiPath.System.Activities": "[22.10.4]",
     "UiPath.Testing.Activities": "[22.12.0-preview]",
     "UiPath.UIAutomation.Activities": "[22.10.4]"
@@ -42,57 +42,14 @@
     "processOptions": {
       "ignoredFiles": []
     },
-    "fileInfoCollection": [
-      {
-        "editingStatus": "InProgress",
-        "testCaseId": "32c2fcb9-e9a8-4ae2-931a-ea197dbd55ae",
-        "testCaseType": "TestCase",
-        "executionTemplateType": "Local",
-        "fileName": "Tests\\GetTransactionDataTestCase.xaml"
-      },
-      {
-        "editingStatus": "InProgress",
-        "testCaseId": "56e7801f-6149-4f3c-8ecf-3505e9c691d5",
-        "testCaseType": "TestCase",
-        "executionTemplateType": "Local",
-        "fileName": "Tests\\InitAllApplicationsTestCase.xaml"
-      },
-      {
-        "editingStatus": "InProgress",
-        "testCaseId": "a95b15b3-3d44-4709-8c66-72fdc5899fca",
-        "testCaseType": "TestCase",
-        "executionTemplateType": "Local",
-        "fileName": "Tests\\InitAllSettingsTestCase.xaml"
-      },
-      {
-        "editingStatus": "InProgress",
-        "testCaseId": "7cd0eb22-3ba0-4820-a37a-631708013362",
-        "testCaseType": "TestCase",
-        "executionTemplateType": "Local",
-        "fileName": "Tests\\MainTestCase.xaml"
-      },
-      {
-        "editingStatus": "InProgress",
-        "testCaseId": "c05f4b32-9ec4-472e-82a9-6fd3dcf4e972",
-        "testCaseType": "TestCase",
-        "executionTemplateType": "Local",
-        "fileName": "Tests\\ProcessTestCase.xaml"
-      },
-      {
-        "editingStatus": "InProgress",
-        "testCaseId": "886b1f96-33fc-4fff-aed5-3a903d6a5b28",
-        "testCaseType": "TestCase",
-        "executionTemplateType": "Local",
-        "fileName": "Tests\\WorkflowTestCaseTemplate.xaml"
-      }
-    ],
+    "fileInfoCollection": [],
     "modernBehavior": true
   },
   "expressionLanguage": "VisualBasic",
   "entryPoints": [
     {
       "filePath": "Main.xaml",
-      "uniqueId": "88de2b80-7cd0-420a-b9b2-89883285b95d",
+      "uniqueId": "432f7657-8ab4-440c-891e-ff46fee098f1",
       "input": [],
       "output": []
     }
