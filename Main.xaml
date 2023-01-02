@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1150,827" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="972,827" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="27">
       <x:String>System.Activities</x:String>
@@ -31,7 +31,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="43">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="86">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -74,6 +74,7 @@
       <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
       <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="421,507" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -91,24 +92,14 @@
     </sap:WorkflowViewStateService.ViewState>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Validaciones\ValidarInsumos.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Validaciones\ValidarInsumos.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_StrURLArchivos">
-          <Literal x:TypeArguments="x:String">https://drive.google.com/drive/folders/16p7lIOVjPhdnxlZTGTnVjricfsAS0pv_</Literal>
-        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_StrURLArchivos">https://drive.google.com/drive/folders/16p7lIOVjPhdnxlZTGTnVjricfsAS0pv_</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_StrURLNegocio">
           <Literal x:TypeArguments="x:String" Value="" />
         </InArgument>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_DtbParametrosDeNegocio">
-          <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="vDtbParametrosDeNegocio" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_DtbAsignacionDeDescansos">
-          <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="vDtbAsignacionDeDescansos" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_DtbDBPersonas">
-          <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="vDtbDBPersonas" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_DtbPlantillaAsignacion">
-          <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="vDtbPlantillaAsignacion" />
-        </OutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_DtbParametrosDeNegocio">[vDtbParametrosDeNegocio]</OutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_DtbAsignacionDeDescansos">[vDtbAsignacionDeDescansos]</OutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_DtbDBPersonas">[vDtbDBPersonas]</OutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_DtbPlantillaAsignacion">[vDtbPlantillaAsignacion]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Utiles\ExtraerInformacionPagosComision.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Utiles\ExtraerInformacionPagosComision.xaml">
@@ -119,6 +110,9 @@
         <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_DtbPagosComision">
           <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="vDtbPagosComision" />
         </OutArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtbParametrosDeNegocio">
+          <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="vDtbParametrosDeNegocio" />
+        </InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Procesos\AsignarCampañaOperario.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Procesos\AsignarCampañaOperario.xaml">
@@ -134,6 +128,9 @@
         </InOutArgument>
         <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_DtbPagosComision">
           <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="vDtbPagosComision" />
+        </InOutArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_DtbParametrosDeNegocio">
+          <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="vDtbParametrosDeNegocio" />
         </InOutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>

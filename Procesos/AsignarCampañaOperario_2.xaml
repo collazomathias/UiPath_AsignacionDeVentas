@@ -1,0 +1,1552 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="AsignarCampañaOperario_2" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_DtbBDPersonas" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_DtbAsignacionDeDescansos" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_DtbPlantillaAsignacion" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_DtbPagosComision" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_DtbParametrosDeNegocio" Type="InArgument(sd:DataTable)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>972,3924</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>AsignarCampañaOperario_2_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="30">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="43">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="AsignarCampañaOperario_2" sap:VirtualizedContainerService.HintSize="910,3859" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="s:String[]" Name="vVecSemana">
+        <Variable.Default>
+          <VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="new String(){&quot;Lunes&quot;, &quot;Martes&quot;, &quot;Miercoles&quot;, &quot;Jueves&quot;, &quot;Viernes&quot;, &quot;Sabado&quot;}" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:Int32" Name="vIntCountCCSM" />
+      <Variable x:TypeArguments="x:Int32" Name="vIntCountCTTPS" />
+      <Variable x:TypeArguments="x:Int32" Name="vIntCountCCSMP" />
+      <Variable x:TypeArguments="x:Int32" Name="vIntCountCCPS" />
+      <Variable x:TypeArguments="x:Int32" Name="vIntCountCCC" />
+      <Variable x:TypeArguments="x:Int32" Name="vIntCountCCPH" />
+      <Variable x:TypeArguments="x:Int32" Name="vIntCountCFCPS" />
+      <Variable x:TypeArguments="x:Boolean" Name="vBooAssigned" />
+      <Variable x:TypeArguments="s:String[]" Name="vVecAssignedCampaigns" />
+      <Variable x:TypeArguments="x:Boolean" Name="vBooCCSM" />
+      <Variable x:TypeArguments="x:Boolean" Name="vBooCTTPS" />
+      <Variable x:TypeArguments="x:Boolean" Name="vBooCCSMP" />
+      <Variable x:TypeArguments="x:Boolean" Name="vBooCCPS" />
+      <Variable x:TypeArguments="x:Boolean" Name="vBooCCC" />
+      <Variable x:TypeArguments="x:Boolean" Name="vBooCCPH" />
+      <Variable x:TypeArguments="x:Boolean" Name="vBooCFCPS" />
+      <Variable x:TypeArguments="x:Int32" Name="vCountDescanso" />
+      <Variable x:TypeArguments="x:Int32" Name="vIntColumnCount" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="868,3771" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[vVecSemana]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="x:String">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:String" Name="Day" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="832,3645" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign sap:VirtualizedContainerService.HintSize="790,82" sap2010:WorkflowViewState.IdRef="Assign_12">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[vIntCountCCSM]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32">0</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign sap:VirtualizedContainerService.HintSize="790,82" sap2010:WorkflowViewState.IdRef="Assign_13">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[vIntCountCTTPS]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32">0</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign sap:VirtualizedContainerService.HintSize="790,82" sap2010:WorkflowViewState.IdRef="Assign_14">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[vIntCountCCSMP]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32">0</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign sap:VirtualizedContainerService.HintSize="790,82" sap2010:WorkflowViewState.IdRef="Assign_15">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[vIntCountCCPS]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32">0</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign sap:VirtualizedContainerService.HintSize="790,82" sap2010:WorkflowViewState.IdRef="Assign_16">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[vIntCountCCC]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32">0</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign sap:VirtualizedContainerService.HintSize="790,82" sap2010:WorkflowViewState.IdRef="Assign_17">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[vIntCountCCPH]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32">0</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[in_DtbBDPersonas]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="790,2825" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+              <ui:ForEachRow.Body>
+                <ActivityAction x:TypeArguments="sd:DataRow">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="sd:DataRow" Name="Persona" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="756,2708" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign sap:VirtualizedContainerService.HintSize="714,82" sap2010:WorkflowViewState.IdRef="Assign_2">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Boolean">[vBooAssigned]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="714,82" sap2010:WorkflowViewState.IdRef="Assign_4">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Boolean">[vBooCCSM]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="714,82" sap2010:WorkflowViewState.IdRef="Assign_3">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Boolean">[vBooCTTPS]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="714,82" sap2010:WorkflowViewState.IdRef="Assign_5">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Boolean">[vBooCCSMP]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="714,82" sap2010:WorkflowViewState.IdRef="Assign_6">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Boolean">[vBooCCPS]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="714,82" sap2010:WorkflowViewState.IdRef="Assign_7">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Boolean">[vBooCCC]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="714,82" sap2010:WorkflowViewState.IdRef="Assign_8">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Boolean">[vBooCCPH]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="714,82" sap2010:WorkflowViewState.IdRef="Assign_9">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Boolean">[vBooCFCPS]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[Day.ToString]" sap:VirtualizedContainerService.HintSize="714,1644" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+                      <If x:Key="Lunes" Condition="[Persona(&quot;Genero&quot;).ToString = &quot;M&quot;]" DisplayName="If gender is male or female" sap:VirtualizedContainerService.HintSize="674,1348" sap2010:WorkflowViewState.IdRef="If_1">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If.Then>
+                          <Sequence sap:VirtualizedContainerService.HintSize="400,140" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="358,52" sap2010:WorkflowViewState.IdRef="IfElseIf_1">
+                              <ui:IfElseIf.ConditionBlocks>
+                                <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                                  <ui:IfElseIfBlock BlockType="If" Condition="[vBooAssigned = False And _&#xD;&#xA;vBooCTTPS = False And _&#xD;&#xA;vIntCountCTTPS &lt; 18]">
+                                    <ui:IfElseIfBlock.Then>
+                                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,506" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{Persona(&quot;Colaborador&quot;).ToString, Persona(&quot;TD&quot;).ToString, Persona(&quot;Identificacion&quot;).ToString, Persona(&quot;Edad&quot;).ToString, Persona(&quot;Genero&quot;).ToString, in_DtbPagosComision.Rows(1).Item(&quot;Nombre&quot;), &quot;Lunes&quot;, in_DtbPagosComision.Rows(1).Item(&quot;Grupo&quot;).ToString, in_DtbPagosComision.Rows(1).Item(&quot;Folio&quot;).ToString}]" DataTable="[in_DtbPlantillaAsignacion]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="AddDataRow_3">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                        </ui:AddDataRow>
+                                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_10">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:Boolean">[vBooAssigned]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_11">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:Boolean">[vBooCTTPS]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_18">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:Int32">[vIntCountCTTPS]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:Int32">[vIntCountCTTPS + 1]</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                      </Sequence>
+                                    </ui:IfElseIfBlock.Then>
+                                  </ui:IfElseIfBlock>
+                                  <ui:IfElseIfBlock BlockType="ElseIf" Condition="[vBooAssigned = False And _&#xD;&#xA;vBooCCC = False And _&#xD;&#xA;vIntCountCCC &lt; 18]">
+                                    <ui:IfElseIfBlock.Then>
+                                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,640" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{Persona(&quot;Colaborador&quot;).ToString, Persona(&quot;TD&quot;).ToString, Persona(&quot;Identificacion&quot;).ToString, Persona(&quot;Edad&quot;).ToString, Persona(&quot;Genero&quot;).ToString, in_DtbPagosComision.Rows(4).Item(&quot;Nombre&quot;), &quot;Lunes&quot;, in_DtbPagosComision.Rows(4).Item(&quot;Grupo&quot;).ToString, in_DtbPagosComision.Rows(4).Item(&quot;Folio&quot;).ToString}]" DataTable="[in_DtbPlantillaAsignacion]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,186" sap2010:WorkflowViewState.IdRef="AddDataRow_4">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                        </ui:AddDataRow>
+                                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_19">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:Boolean">[vBooAssigned]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_20">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:Boolean">[vBooCCC]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_21">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:Int32">[vIntCountCCC]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:Int32">[vIntCountCCC + 1]</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                      </Sequence>
+                                    </ui:IfElseIfBlock.Then>
+                                  </ui:IfElseIfBlock>
+                                  <ui:IfElseIfBlock BlockType="ElseIf" Condition="[vBooAssigned = False And _&#xD;&#xA;vBooCCSMP = False And _&#xD;&#xA;vIntCountCCSMP &lt; 18]">
+                                    <ui:IfElseIfBlock.Then>
+                                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,640" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{Persona(&quot;Colaborador&quot;).ToString, Persona(&quot;TD&quot;).ToString, Persona(&quot;Identificacion&quot;).ToString, Persona(&quot;Edad&quot;).ToString, Persona(&quot;Genero&quot;).ToString, in_DtbPagosComision.Rows(2).Item(&quot;Nombre&quot;), &quot;Lunes&quot;, in_DtbPagosComision.Rows(2).Item(&quot;Grupo&quot;).ToString, in_DtbPagosComision.Rows(2).Item(&quot;Folio&quot;).ToString}]" DataTable="[in_DtbPlantillaAsignacion]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,186" sap2010:WorkflowViewState.IdRef="AddDataRow_5">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                        </ui:AddDataRow>
+                                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_22">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:Boolean">[vBooAssigned]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_23">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:Boolean">[vBooCCSMP]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_24">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:Int32">[vIntCountCCSMP]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:Int32">[vIntCountCCSMP + 1]</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                      </Sequence>
+                                    </ui:IfElseIfBlock.Then>
+                                  </ui:IfElseIfBlock>
+                                  <ui:IfElseIfBlock BlockType="ElseIf" Condition="[vBooAssigned = False And _&#xD;&#xA;vBooCCPS = False And _&#xD;&#xA;vIntCountCCPS &lt; 18]">
+                                    <ui:IfElseIfBlock.Then>
+                                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,640" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{Persona(&quot;Colaborador&quot;).ToString, Persona(&quot;TD&quot;).ToString, Persona(&quot;Identificacion&quot;).ToString, Persona(&quot;Edad&quot;).ToString, Persona(&quot;Genero&quot;).ToString, in_DtbPagosComision.Rows(3).Item(&quot;Nombre&quot;), &quot;Lunes&quot;, in_DtbPagosComision.Rows(3).Item(&quot;Grupo&quot;).ToString, in_DtbPagosComision.Rows(3).Item(&quot;Folio&quot;).ToString}]" DataTable="[in_DtbPlantillaAsignacion]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,186" sap2010:WorkflowViewState.IdRef="AddDataRow_6">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                        </ui:AddDataRow>
+                                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_25">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:Boolean">[vBooAssigned]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_26">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:Boolean">[vBooCCPS]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_27">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:Int32">[vIntCountCCPS]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:Int32">[vIntCountCCPS + 1]</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                      </Sequence>
+                                    </ui:IfElseIfBlock.Then>
+                                  </ui:IfElseIfBlock>
+                                  <ui:IfElseIfBlock BlockType="ElseIf" Condition="[vBooAssigned = False And _&#xD;&#xA;vBooCCPH = False And _&#xD;&#xA;vIntCountCCPH &lt; 18]">
+                                    <ui:IfElseIfBlock.Then>
+                                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,640" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{Persona(&quot;Colaborador&quot;).ToString, Persona(&quot;TD&quot;).ToString, Persona(&quot;Identificacion&quot;).ToString, Persona(&quot;Edad&quot;).ToString, Persona(&quot;Genero&quot;).ToString, in_DtbPagosComision.Rows(5).Item(&quot;Nombre&quot;), &quot;Lunes&quot;, in_DtbPagosComision.Rows(5).Item(&quot;Grupo&quot;).ToString, in_DtbPagosComision.Rows(5).Item(&quot;Folio&quot;).ToString}]" DataTable="[in_DtbPlantillaAsignacion]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,186" sap2010:WorkflowViewState.IdRef="AddDataRow_7">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                        </ui:AddDataRow>
+                                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_28">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:Boolean">[vBooAssigned]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_29">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:Boolean">[vBooCCPH]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_30">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:Int32">[vIntCountCCPH]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:Int32">[vIntCountCCPH + 1]</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                      </Sequence>
+                                    </ui:IfElseIfBlock.Then>
+                                  </ui:IfElseIfBlock>
+                                  <ui:IfElseIfBlock BlockType="ElseIf" Condition="[vBooAssigned = False And _&#xD;&#xA;vCountDescanso &lt; 10]">
+                                    <ui:IfElseIfBlock.Then>
+                                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,628" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_34">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:Int32">[vIntColumnCount]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:Int32">[CInt(In_DtbAsignacionDeDescansos.AsEnumerable.Count(Function (row) Not String.IsNullOrEmpty(row("Lunes").ToString)))]</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                        <ui:AddDataRow ArrayRow="{x:Null}" DataRow="[in_DtbAsignacionDeDescansos.NewRow]" DataTable="[in_DtbAsignacionDeDescansos]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="AddDataRow_9">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                        </ui:AddDataRow>
+                                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_35">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:Object">[in_DtbAsignacionDeDescansos.Rows(vIntColumnCount)("Lunes")]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:Object">[Persona("Identificacion").ToString]</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_36">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:Int32">[vCountDescanso]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:Int32">[vCountDescanso + 1]</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_31">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:Boolean">[vBooAssigned]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                      </Sequence>
+                                    </ui:IfElseIfBlock.Then>
+                                  </ui:IfElseIfBlock>
+                                </sc:BindingList>
+                              </ui:IfElseIf.ConditionBlocks>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:IfElseIf>
+                          </Sequence>
+                        </If.Then>
+                        <If.Else>
+                          <Sequence sap:VirtualizedContainerService.HintSize="596,1032" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <If Condition="[vBooAssigned = False And _&#xD;&#xA;vCountDescanso &lt; 10]" sap:VirtualizedContainerService.HintSize="554,944" sap2010:WorkflowViewState.IdRef="If_3">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <If.Then>
+                                <Sequence sap:VirtualizedContainerService.HintSize="476,628" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_71">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:Int32">[vIntColumnCount]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:Int32">[CInt(In_DtbAsignacionDeDescansos.AsEnumerable.Count(Function (row) Not String.IsNullOrEmpty(row("Lunes").ToString)))]</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <ui:AddDataRow ArrayRow="{x:Null}" DataRow="[in_DtbAsignacionDeDescansos.NewRow]" DataTable="[in_DtbAsignacionDeDescansos]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="AddDataRow_22">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:AddDataRow>
+                                  <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_72">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:Object">[in_DtbAsignacionDeDescansos.Rows(vIntColumnCount)("Lunes")]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:Object">[Persona("Identificacion").ToString]</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_73">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:Int32">[vCountDescanso]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:Int32">[vCountDescanso + 1]</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_74">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:Boolean">[vBooAssigned]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                </Sequence>
+                              </If.Then>
+                              <If.Else>
+                                <Sequence sap:VirtualizedContainerService.HintSize="400,140" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="358,52" sap2010:WorkflowViewState.IdRef="IfElseIf_2">
+                                    <ui:IfElseIf.ConditionBlocks>
+                                      <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                                        <ui:IfElseIfBlock BlockType="If" Condition="[vBooAssigned = False And _&#xD;&#xA;vBooCTTPS = False And _&#xD;&#xA;vIntCountCTTPS &lt; 18]">
+                                          <ui:IfElseIfBlock.Then>
+                                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,506" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{Persona(&quot;Colaborador&quot;).ToString, Persona(&quot;TD&quot;).ToString, Persona(&quot;Identificacion&quot;).ToString, Persona(&quot;Edad&quot;).ToString, Persona(&quot;Genero&quot;).ToString, in_DtbPagosComision.Rows(1).Item(&quot;Nombre&quot;), &quot;Lunes&quot;, in_DtbPagosComision.Rows(1).Item(&quot;Grupo&quot;).ToString, in_DtbPagosComision.Rows(1).Item(&quot;Folio&quot;).ToString}]" DataTable="[in_DtbPlantillaAsignacion]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="AddDataRow_11">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                              </ui:AddDataRow>
+                                              <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_37">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:Boolean">[vBooAssigned]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                              <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_38">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:Boolean">[vBooCTTPS]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                              <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_39">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:Int32">[vIntCountCTTPS]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:Int32">[vIntCountCTTPS + 1]</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                            </Sequence>
+                                          </ui:IfElseIfBlock.Then>
+                                        </ui:IfElseIfBlock>
+                                        <ui:IfElseIfBlock BlockType="ElseIf" Condition="[vBooAssigned = False And _&#xA;vBooCCC = False And _&#xA;vIntCountCCC &lt; 18]">
+                                          <ui:IfElseIfBlock.Then>
+                                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,640" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{Persona(&quot;Colaborador&quot;).ToString, Persona(&quot;TD&quot;).ToString, Persona(&quot;Identificacion&quot;).ToString, Persona(&quot;Edad&quot;).ToString, Persona(&quot;Genero&quot;).ToString, in_DtbPagosComision.Rows(4).Item(&quot;Nombre&quot;), &quot;Lunes&quot;, in_DtbPagosComision.Rows(4).Item(&quot;Grupo&quot;).ToString, in_DtbPagosComision.Rows(4).Item(&quot;Folio&quot;).ToString}]" DataTable="[in_DtbPlantillaAsignacion]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,186" sap2010:WorkflowViewState.IdRef="AddDataRow_12">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                              </ui:AddDataRow>
+                                              <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_40">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:Boolean">[vBooAssigned]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                              <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_41">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:Boolean">[vBooCCC]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                              <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_42">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:Int32">[vIntCountCCC]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:Int32">[vIntCountCCC + 1]</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                            </Sequence>
+                                          </ui:IfElseIfBlock.Then>
+                                        </ui:IfElseIfBlock>
+                                        <ui:IfElseIfBlock BlockType="ElseIf" Condition="[vBooAssigned = False And _&#xA;vBooCCSMP = False And _&#xA;vIntCountCCSMP &lt; 18]">
+                                          <ui:IfElseIfBlock.Then>
+                                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,640" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{Persona(&quot;Colaborador&quot;).ToString, Persona(&quot;TD&quot;).ToString, Persona(&quot;Identificacion&quot;).ToString, Persona(&quot;Edad&quot;).ToString, Persona(&quot;Genero&quot;).ToString, in_DtbPagosComision.Rows(2).Item(&quot;Nombre&quot;), &quot;Lunes&quot;, in_DtbPagosComision.Rows(2).Item(&quot;Grupo&quot;).ToString, in_DtbPagosComision.Rows(2).Item(&quot;Folio&quot;).ToString}]" DataTable="[in_DtbPlantillaAsignacion]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,186" sap2010:WorkflowViewState.IdRef="AddDataRow_13">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                              </ui:AddDataRow>
+                                              <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_43">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:Boolean">[vBooAssigned]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                              <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_44">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:Boolean">[vBooCCSMP]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                              <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_45">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:Int32">[vIntCountCCSMP]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:Int32">[vIntCountCCSMP + 1]</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                            </Sequence>
+                                          </ui:IfElseIfBlock.Then>
+                                        </ui:IfElseIfBlock>
+                                        <ui:IfElseIfBlock BlockType="ElseIf" Condition="[vBooAssigned = False And _&#xA;vBooCCPS = False And _&#xA;vIntCountCCPS &lt; 18]">
+                                          <ui:IfElseIfBlock.Then>
+                                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,640" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{Persona(&quot;Colaborador&quot;).ToString, Persona(&quot;TD&quot;).ToString, Persona(&quot;Identificacion&quot;).ToString, Persona(&quot;Edad&quot;).ToString, Persona(&quot;Genero&quot;).ToString, in_DtbPagosComision.Rows(3).Item(&quot;Nombre&quot;), &quot;Lunes&quot;, in_DtbPagosComision.Rows(3).Item(&quot;Grupo&quot;).ToString, in_DtbPagosComision.Rows(3).Item(&quot;Folio&quot;).ToString}]" DataTable="[in_DtbPlantillaAsignacion]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,186" sap2010:WorkflowViewState.IdRef="AddDataRow_14">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                              </ui:AddDataRow>
+                                              <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_46">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:Boolean">[vBooAssigned]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                              <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_47">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:Boolean">[vBooCCPS]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                              <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_48">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:Int32">[vIntCountCCPS]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:Int32">[vIntCountCCPS + 1]</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                            </Sequence>
+                                          </ui:IfElseIfBlock.Then>
+                                        </ui:IfElseIfBlock>
+                                        <ui:IfElseIfBlock BlockType="ElseIf" Condition="[vBooAssigned = False And _&#xA;vBooCCPH = False And _&#xA;vIntCountCCPH &lt; 18]">
+                                          <ui:IfElseIfBlock.Then>
+                                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,640" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{Persona(&quot;Colaborador&quot;).ToString, Persona(&quot;TD&quot;).ToString, Persona(&quot;Identificacion&quot;).ToString, Persona(&quot;Edad&quot;).ToString, Persona(&quot;Genero&quot;).ToString, in_DtbPagosComision.Rows(5).Item(&quot;Nombre&quot;), &quot;Lunes&quot;, in_DtbPagosComision.Rows(5).Item(&quot;Grupo&quot;).ToString, in_DtbPagosComision.Rows(5).Item(&quot;Folio&quot;).ToString}]" DataTable="[in_DtbPlantillaAsignacion]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,186" sap2010:WorkflowViewState.IdRef="AddDataRow_15">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                              </ui:AddDataRow>
+                                              <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_49">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:Boolean">[vBooAssigned]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                              <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_50">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:Boolean">[vBooCCPH]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                              <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_51">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:Int32">[vIntCountCCPH]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:Int32">[vIntCountCCPH + 1]</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                            </Sequence>
+                                          </ui:IfElseIfBlock.Then>
+                                        </ui:IfElseIfBlock>
+                                      </sc:BindingList>
+                                    </ui:IfElseIf.ConditionBlocks>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:IfElseIf>
+                                </Sequence>
+                              </If.Else>
+                            </If>
+                          </Sequence>
+                        </If.Else>
+                      </If>
+                      <Sequence x:Key="Martes" sap:VirtualizedContainerService.HintSize="689,6187" sap2010:WorkflowViewState.IdRef="Sequence_44">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="sd:DataTable" Name="vDtbAssignedCampaigns" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:FilterDataTable DataTable="[in_DtbPlantillaAsignacion]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="647,161" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[vDtbAssignedCampaigns]" SelectColumnsMode="Keep">
+                          <ui:FilterDataTable.Filters>
+                            <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+                              <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+                                <ui:FilterOperationArgument.Column>
+                                  <InArgument x:TypeArguments="x:String">["Nombre"]</InArgument>
+                                </ui:FilterOperationArgument.Column>
+                                <ui:FilterOperationArgument.Operand>
+                                  <InArgument x:TypeArguments="x:String">[Persona("Colaborador").ToString]</InArgument>
+                                </ui:FilterOperationArgument.Operand>
+                              </ui:FilterOperationArgument>
+                              <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+                                <ui:FilterOperationArgument.Column>
+                                  <InArgument x:TypeArguments="x:String">["Dia"]</InArgument>
+                                </ui:FilterOperationArgument.Column>
+                                <ui:FilterOperationArgument.Operand>
+                                  <InArgument x:TypeArguments="x:String">["Lunes"]</InArgument>
+                                </ui:FilterOperationArgument.Operand>
+                              </ui:FilterOperationArgument>
+                            </scg:List>
+                          </ui:FilterDataTable.Filters>
+                          <ui:FilterDataTable.SelectColumns>
+                            <scg:List x:TypeArguments="InArgument" Capacity="4">
+                              <x:Null />
+                            </scg:List>
+                          </ui:FilterDataTable.SelectColumns>
+                        </ui:FilterDataTable>
+                        <Assign sap:VirtualizedContainerService.HintSize="647,82" sap2010:WorkflowViewState.IdRef="Assign_113">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="s:String[]">[vVecAssignedCampaigns]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="s:String[]">[new String(){vDtbAssignedCampaigns.Rows(0)("Campaña").ToString}]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <If Condition="[Persona(&quot;Genero&quot;).ToString = &quot;M&quot;]" DisplayName="If gender is male or female" sap:VirtualizedContainerService.HintSize="647,5776" sap2010:WorkflowViewState.IdRef="If_4">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If.Then>
+                            <Sequence sap:VirtualizedContainerService.HintSize="569,5460" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <If Condition="[vBooAssigned = false AND vCountDescanso &lt; 10 AND in_DtbAsignacionDeDescansos.AsEnumerable.All(Function(r) r(Persona(&quot;Colaborador&quot;).ToString) Is Nothing OrElse String.IsNullOrEmpty(r(Persona(&quot;Colaborador&quot;).ToString).ToString)) = false]" sap:VirtualizedContainerService.HintSize="527,376" sap2010:WorkflowViewState.IdRef="If_6">
+                                <If.Then>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="400,80" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </Sequence>
+                                </If.Then>
+                                <If.Else>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="400,80" sap2010:WorkflowViewState.IdRef="Sequence_43">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </Sequence>
+                                </If.Else>
+                              </If>
+                              <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="527,277" sap2010:WorkflowViewState.IdRef="IfElseIf_6">
+                                <ui:IfElseIf.ConditionBlocks>
+                                  <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                                    <ui:IfElseIfBlock BlockType="If" Condition="[vBooAssigned = False And _&#xD;&#xA;vBooCCSM = False And _&#xD;&#xA;vIntCountCCSM &lt; 18]">
+                                      <ui:IfElseIfBlock.Then>
+                                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="400,80" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                        </Sequence>
+                                      </ui:IfElseIfBlock.Then>
+                                    </ui:IfElseIfBlock>
+                                  </sc:BindingList>
+                                </ui:IfElseIf.ConditionBlocks>
+                              </ui:IfElseIf>
+                              <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="527,4639" sap2010:WorkflowViewState.IdRef="IfElseIf_4">
+                                <ui:IfElseIf.ConditionBlocks>
+                                  <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                                    <ui:IfElseIfBlock BlockType="If" Condition="[vBooAssigned = False And _&#xD;&#xA;vBooCTTPS = False And _&#xD;&#xA;vIntCountCTTPS &lt; 18]">
+                                      <ui:IfElseIfBlock.Then>
+                                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,506" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{Persona(&quot;Colaborador&quot;).ToString, Persona(&quot;TD&quot;).ToString, Persona(&quot;Identificacion&quot;).ToString, Persona(&quot;Edad&quot;).ToString, Persona(&quot;Genero&quot;).ToString, in_DtbPagosComision.Rows(1).Item(&quot;Nombre&quot;), &quot;Lunes&quot;, in_DtbPagosComision.Rows(1).Item(&quot;Grupo&quot;).ToString, in_DtbPagosComision.Rows(1).Item(&quot;Folio&quot;).ToString}]" DataTable="[in_DtbPlantillaAsignacion]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="AddDataRow_23">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </ui:AddDataRow>
+                                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_75">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Boolean">[vBooAssigned]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_76">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Boolean">[vBooCTTPS]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_77">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Int32">[vIntCountCTTPS]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Int32">[vIntCountCTTPS + 1]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                        </Sequence>
+                                      </ui:IfElseIfBlock.Then>
+                                    </ui:IfElseIfBlock>
+                                    <ui:IfElseIfBlock BlockType="ElseIf" Condition="[vBooAssigned = False And _&#xA;vBooCCC = False And _&#xA;vIntCountCCC &lt; 18]">
+                                      <ui:IfElseIfBlock.Then>
+                                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,640" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{Persona(&quot;Colaborador&quot;).ToString, Persona(&quot;TD&quot;).ToString, Persona(&quot;Identificacion&quot;).ToString, Persona(&quot;Edad&quot;).ToString, Persona(&quot;Genero&quot;).ToString, in_DtbPagosComision.Rows(4).Item(&quot;Nombre&quot;), &quot;Lunes&quot;, in_DtbPagosComision.Rows(4).Item(&quot;Grupo&quot;).ToString, in_DtbPagosComision.Rows(4).Item(&quot;Folio&quot;).ToString}]" DataTable="[in_DtbPlantillaAsignacion]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,186" sap2010:WorkflowViewState.IdRef="AddDataRow_26">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </ui:AddDataRow>
+                                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_78">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Boolean">[vBooAssigned]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_79">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Boolean">[vBooCCC]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_80">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Int32">[vIntCountCCC]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Int32">[vIntCountCCC + 1]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                        </Sequence>
+                                      </ui:IfElseIfBlock.Then>
+                                    </ui:IfElseIfBlock>
+                                    <ui:IfElseIfBlock BlockType="ElseIf" Condition="[vBooAssigned = False And _&#xA;vBooCCSMP = False And _&#xA;vIntCountCCSMP &lt; 18]">
+                                      <ui:IfElseIfBlock.Then>
+                                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,640" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{Persona(&quot;Colaborador&quot;).ToString, Persona(&quot;TD&quot;).ToString, Persona(&quot;Identificacion&quot;).ToString, Persona(&quot;Edad&quot;).ToString, Persona(&quot;Genero&quot;).ToString, in_DtbPagosComision.Rows(2).Item(&quot;Nombre&quot;), &quot;Lunes&quot;, in_DtbPagosComision.Rows(2).Item(&quot;Grupo&quot;).ToString, in_DtbPagosComision.Rows(2).Item(&quot;Folio&quot;).ToString}]" DataTable="[in_DtbPlantillaAsignacion]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,186" sap2010:WorkflowViewState.IdRef="AddDataRow_27">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </ui:AddDataRow>
+                                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_81">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Boolean">[vBooAssigned]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_82">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Boolean">[vBooCCSMP]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_83">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Int32">[vIntCountCCSMP]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Int32">[vIntCountCCSMP + 1]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                        </Sequence>
+                                      </ui:IfElseIfBlock.Then>
+                                    </ui:IfElseIfBlock>
+                                    <ui:IfElseIfBlock BlockType="ElseIf" Condition="[vBooAssigned = False And _&#xA;vBooCCPS = False And _&#xA;vIntCountCCPS &lt; 18]">
+                                      <ui:IfElseIfBlock.Then>
+                                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,639" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{Persona(&quot;Colaborador&quot;).ToString, Persona(&quot;TD&quot;).ToString, Persona(&quot;Identificacion&quot;).ToString, Persona(&quot;Edad&quot;).ToString, Persona(&quot;Genero&quot;).ToString, in_DtbPagosComision.Rows(3).Item(&quot;Nombre&quot;), &quot;Lunes&quot;, in_DtbPagosComision.Rows(3).Item(&quot;Grupo&quot;).ToString, in_DtbPagosComision.Rows(3).Item(&quot;Folio&quot;).ToString}]" DataTable="[in_DtbPlantillaAsignacion]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,186" sap2010:WorkflowViewState.IdRef="AddDataRow_28">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </ui:AddDataRow>
+                                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_84">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Boolean">[vBooAssigned]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_85">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Boolean">[vBooCCPS]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_86">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Int32">[vIntCountCCPS]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Int32">[vIntCountCCPS + 1]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                        </Sequence>
+                                      </ui:IfElseIfBlock.Then>
+                                    </ui:IfElseIfBlock>
+                                    <ui:IfElseIfBlock BlockType="ElseIf" Condition="[vBooAssigned = False And _&#xA;vBooCCPH = False And _&#xA;vIntCountCCPH &lt; 18]">
+                                      <ui:IfElseIfBlock.Then>
+                                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,640" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{Persona(&quot;Colaborador&quot;).ToString, Persona(&quot;TD&quot;).ToString, Persona(&quot;Identificacion&quot;).ToString, Persona(&quot;Edad&quot;).ToString, Persona(&quot;Genero&quot;).ToString, in_DtbPagosComision.Rows(5).Item(&quot;Nombre&quot;), &quot;Lunes&quot;, in_DtbPagosComision.Rows(5).Item(&quot;Grupo&quot;).ToString, in_DtbPagosComision.Rows(5).Item(&quot;Folio&quot;).ToString}]" DataTable="[in_DtbPlantillaAsignacion]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,186" sap2010:WorkflowViewState.IdRef="AddDataRow_29">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </ui:AddDataRow>
+                                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_87">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Boolean">[vBooAssigned]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_88">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Boolean">[vBooCCPH]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_89">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Int32">[vIntCountCCPH]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Int32">[vIntCountCCPH + 1]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                        </Sequence>
+                                      </ui:IfElseIfBlock.Then>
+                                    </ui:IfElseIfBlock>
+                                    <ui:IfElseIfBlock BlockType="ElseIf" Condition="[vBooAssigned = False And _&#xA;vCountDescanso &lt; 10]">
+                                      <ui:IfElseIfBlock.Then>
+                                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,742" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_90">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Int32">[vIntColumnCount]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Int32">[CInt(In_DtbAsignacionDeDescansos.AsEnumerable.Count(Function (row) Not String.IsNullOrEmpty(row("Lunes").ToString)))]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                          <ui:AddDataRow ArrayRow="{x:Null}" DataRow="[in_DtbAsignacionDeDescansos.NewRow]" DataTable="[in_DtbAsignacionDeDescansos]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="AddDataRow_30">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </ui:AddDataRow>
+                                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_91">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Object">[in_DtbAsignacionDeDescansos.Rows(vIntColumnCount)("Lunes")]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Object">[Persona("Colaborador").ToString]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_92">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Int32">[vCountDescanso]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Int32">[vCountDescanso + 1]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                          <Assign sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_93">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Boolean">[vBooAssigned]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                        </Sequence>
+                                      </ui:IfElseIfBlock.Then>
+                                    </ui:IfElseIfBlock>
+                                  </sc:BindingList>
+                                </ui:IfElseIf.ConditionBlocks>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </ui:IfElseIf>
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence sap:VirtualizedContainerService.HintSize="400,140" sap2010:WorkflowViewState.IdRef="Sequence_40">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <If Condition="[vBooAssigned = False And _&#xA;vCountDescanso &lt; 10]" sap:VirtualizedContainerService.HintSize="358,52" sap2010:WorkflowViewState.IdRef="If_5">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <If.Then>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="476,628" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_94">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:Int32">[vIntColumnCount]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:Int32">[CInt(In_DtbAsignacionDeDescansos.AsEnumerable.Count(Function (row) Not String.IsNullOrEmpty(row("Lunes").ToString)))]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <ui:AddDataRow ArrayRow="{x:Null}" DataRow="[in_DtbAsignacionDeDescansos.NewRow]" DataTable="[in_DtbAsignacionDeDescansos]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="AddDataRow_24">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </ui:AddDataRow>
+                                    <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_95">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:Object">[in_DtbAsignacionDeDescansos.Rows(vIntColumnCount)("Lunes")]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:Object">[Persona("Colaborador").ToString]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_96">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:Int32">[vCountDescanso]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:Int32">[vCountDescanso + 1]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_97">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:Boolean">[vBooAssigned]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                  </Sequence>
+                                </If.Then>
+                                <If.Else>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="400,140" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="358,52" sap2010:WorkflowViewState.IdRef="IfElseIf_5">
+                                      <ui:IfElseIf.ConditionBlocks>
+                                        <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                                          <ui:IfElseIfBlock BlockType="If" Condition="[vBooAssigned = False And _&#xA;vBooCTTPS = False And _&#xA;vIntCountCTTPS &lt; 18]">
+                                            <ui:IfElseIfBlock.Then>
+                                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,506" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{Persona(&quot;Colaborador&quot;).ToString, Persona(&quot;TD&quot;).ToString, Persona(&quot;Identificacion&quot;).ToString, Persona(&quot;Edad&quot;).ToString, Persona(&quot;Genero&quot;).ToString, in_DtbPagosComision.Rows(1).Item(&quot;Nombre&quot;), &quot;Lunes&quot;, in_DtbPagosComision.Rows(1).Item(&quot;Grupo&quot;).ToString, in_DtbPagosComision.Rows(1).Item(&quot;Folio&quot;).ToString}]" DataTable="[in_DtbPlantillaAsignacion]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="AddDataRow_31">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                </ui:AddDataRow>
+                                                <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_98">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:Boolean">[vBooAssigned]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                  </Assign.Value>
+                                                </Assign>
+                                                <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_99">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:Boolean">[vBooCTTPS]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                  </Assign.Value>
+                                                </Assign>
+                                                <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_100">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:Int32">[vIntCountCTTPS]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:Int32">[vIntCountCTTPS + 1]</InArgument>
+                                                  </Assign.Value>
+                                                </Assign>
+                                              </Sequence>
+                                            </ui:IfElseIfBlock.Then>
+                                          </ui:IfElseIfBlock>
+                                          <ui:IfElseIfBlock BlockType="ElseIf" Condition="[vBooAssigned = False And _&#xA;vBooCCC = False And _&#xA;vIntCountCCC &lt; 18]">
+                                            <ui:IfElseIfBlock.Then>
+                                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,640" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{Persona(&quot;Colaborador&quot;).ToString, Persona(&quot;TD&quot;).ToString, Persona(&quot;Identificacion&quot;).ToString, Persona(&quot;Edad&quot;).ToString, Persona(&quot;Genero&quot;).ToString, in_DtbPagosComision.Rows(4).Item(&quot;Nombre&quot;), &quot;Lunes&quot;, in_DtbPagosComision.Rows(4).Item(&quot;Grupo&quot;).ToString, in_DtbPagosComision.Rows(4).Item(&quot;Folio&quot;).ToString}]" DataTable="[in_DtbPlantillaAsignacion]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,186" sap2010:WorkflowViewState.IdRef="AddDataRow_32">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                </ui:AddDataRow>
+                                                <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_101">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:Boolean">[vBooAssigned]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                  </Assign.Value>
+                                                </Assign>
+                                                <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_102">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:Boolean">[vBooCCC]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                  </Assign.Value>
+                                                </Assign>
+                                                <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_103">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:Int32">[vIntCountCCC]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:Int32">[vIntCountCCC + 1]</InArgument>
+                                                  </Assign.Value>
+                                                </Assign>
+                                              </Sequence>
+                                            </ui:IfElseIfBlock.Then>
+                                          </ui:IfElseIfBlock>
+                                          <ui:IfElseIfBlock BlockType="ElseIf" Condition="[vBooAssigned = False And _&#xA;vBooCCSMP = False And _&#xA;vIntCountCCSMP &lt; 18]">
+                                            <ui:IfElseIfBlock.Then>
+                                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,640" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{Persona(&quot;Colaborador&quot;).ToString, Persona(&quot;TD&quot;).ToString, Persona(&quot;Identificacion&quot;).ToString, Persona(&quot;Edad&quot;).ToString, Persona(&quot;Genero&quot;).ToString, in_DtbPagosComision.Rows(2).Item(&quot;Nombre&quot;), &quot;Lunes&quot;, in_DtbPagosComision.Rows(2).Item(&quot;Grupo&quot;).ToString, in_DtbPagosComision.Rows(2).Item(&quot;Folio&quot;).ToString}]" DataTable="[in_DtbPlantillaAsignacion]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,186" sap2010:WorkflowViewState.IdRef="AddDataRow_33">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                </ui:AddDataRow>
+                                                <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_104">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:Boolean">[vBooAssigned]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                  </Assign.Value>
+                                                </Assign>
+                                                <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_105">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:Boolean">[vBooCCSMP]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                  </Assign.Value>
+                                                </Assign>
+                                                <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_106">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:Int32">[vIntCountCCSMP]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:Int32">[vIntCountCCSMP + 1]</InArgument>
+                                                  </Assign.Value>
+                                                </Assign>
+                                              </Sequence>
+                                            </ui:IfElseIfBlock.Then>
+                                          </ui:IfElseIfBlock>
+                                          <ui:IfElseIfBlock BlockType="ElseIf" Condition="[vBooAssigned = False And _&#xA;vBooCCPS = False And _&#xA;vIntCountCCPS &lt; 18]">
+                                            <ui:IfElseIfBlock.Then>
+                                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,640" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{Persona(&quot;Colaborador&quot;).ToString, Persona(&quot;TD&quot;).ToString, Persona(&quot;Identificacion&quot;).ToString, Persona(&quot;Edad&quot;).ToString, Persona(&quot;Genero&quot;).ToString, in_DtbPagosComision.Rows(3).Item(&quot;Nombre&quot;), &quot;Lunes&quot;, in_DtbPagosComision.Rows(3).Item(&quot;Grupo&quot;).ToString, in_DtbPagosComision.Rows(3).Item(&quot;Folio&quot;).ToString}]" DataTable="[in_DtbPlantillaAsignacion]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,186" sap2010:WorkflowViewState.IdRef="AddDataRow_34">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                </ui:AddDataRow>
+                                                <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_107">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:Boolean">[vBooAssigned]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                  </Assign.Value>
+                                                </Assign>
+                                                <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_108">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:Boolean">[vBooCCPS]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                  </Assign.Value>
+                                                </Assign>
+                                                <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_109">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:Int32">[vIntCountCCPS]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:Int32">[vIntCountCCPS + 1]</InArgument>
+                                                  </Assign.Value>
+                                                </Assign>
+                                              </Sequence>
+                                            </ui:IfElseIfBlock.Then>
+                                          </ui:IfElseIfBlock>
+                                          <ui:IfElseIfBlock BlockType="ElseIf" Condition="[vBooAssigned = False And _&#xA;vBooCCPH = False And _&#xA;vIntCountCCPH &lt; 18]">
+                                            <ui:IfElseIfBlock.Then>
+                                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,640" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{Persona(&quot;Colaborador&quot;).ToString, Persona(&quot;TD&quot;).ToString, Persona(&quot;Identificacion&quot;).ToString, Persona(&quot;Edad&quot;).ToString, Persona(&quot;Genero&quot;).ToString, in_DtbPagosComision.Rows(5).Item(&quot;Nombre&quot;), &quot;Lunes&quot;, in_DtbPagosComision.Rows(5).Item(&quot;Grupo&quot;).ToString, in_DtbPagosComision.Rows(5).Item(&quot;Folio&quot;).ToString}]" DataTable="[in_DtbPlantillaAsignacion]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,186" sap2010:WorkflowViewState.IdRef="AddDataRow_35">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                </ui:AddDataRow>
+                                                <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_110">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:Boolean">[vBooAssigned]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                  </Assign.Value>
+                                                </Assign>
+                                                <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_111">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:Boolean">[vBooCCPH]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                  </Assign.Value>
+                                                </Assign>
+                                                <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_112">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:Int32">[vIntCountCCPH]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:Int32">[vIntCountCCPH + 1]</InArgument>
+                                                  </Assign.Value>
+                                                </Assign>
+                                              </Sequence>
+                                            </ui:IfElseIfBlock.Then>
+                                          </ui:IfElseIfBlock>
+                                        </sc:BindingList>
+                                      </ui:IfElseIf.ConditionBlocks>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </ui:IfElseIf>
+                                  </Sequence>
+                                </If.Else>
+                              </If>
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                      </Sequence>
+                      <x:Null x:Key="Miercoles" />
+                      <x:Null x:Key="Jueves" />
+                      <x:Null x:Key="Viernes" />
+                      <x:Null x:Key="Sabadp" />
+                    </Switch>
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEachRow.Body>
+            </ui:ForEachRow>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+    </ui:ForEach>
+  </Sequence>
+</Activity>
