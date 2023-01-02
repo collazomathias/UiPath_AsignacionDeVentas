@@ -21618,15 +21618,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Mathi\\.nuget\\packages\\": {}
+    "C:\\Users\\mathias.collazo\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "Asignación de ventas",
       "projectName": "Asignación de ventas",
-      "projectPath": "C:\\Users\\Mathi\\Desktop\\Asignación de ventas\\.local",
-      "packagesPath": "C:\\Users\\Mathi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mathi\\Desktop\\Asignación de ventas\\.local"
+      "projectPath": "C:\\Users\\mathias.collazo\\Desktop\\UiPath_AsignacionDeVentas\\.local",
+      "packagesPath": "C:\\Users\\mathias.collazo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\mathias.collazo\\Desktop\\UiPath_AsignacionDeVentas\\.local"
     },
     "frameworks": {
       "net6.0-windows7.0": {
@@ -21662,7 +21662,7 @@
             "version": "[22.10.4, 22.10.4]"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\Mathi\\AppData\\Local\\Programs\\UiPath\\Studio\\runtime.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\mathias.collazo\\AppData\\Local\\Programs\\UiPath\\Studio\\runtime.json"
       }
     },
     "runtimes": {
