@@ -10,7 +10,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>972,2337</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>976,2707</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ValidarInsumos_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="55">
@@ -139,7 +139,7 @@
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ValidarInsumos" sap:VirtualizedContainerService.HintSize="714,2272" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ValidarInsumos" sap:VirtualizedContainerService.HintSize="714,2642" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="vStrCorreoNotificacionSoporte" />
     </Sequence.Variables>
@@ -195,6 +195,12 @@
                     </sap:WorkflowViewStateService.ViewState>
                     <ui:FileExistsX DisplayName="File Exists" Exists="[vBooFileExist]" sap:VirtualizedContainerService.HintSize="478,133" sap2010:WorkflowViewState.IdRef="FileExistsX_1" Path="[&quot;Files\&quot;+File.Name]" />
                     <If Condition="[vBooFileExist]" sap:VirtualizedContainerService.HintSize="478,725" sap2010:WorkflowViewState.IdRef="If_1">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
                       <If.Then>
                         <Sequence sap:VirtualizedContainerService.HintSize="400,180" sap2010:WorkflowViewState.IdRef="Sequence_11">
                           <sap:WorkflowViewStateService.ViewState>
@@ -235,7 +241,7 @@
         </InArgument>
       </ugad:GoogleDriveApplicationScope.CredentialSecret>
     </ugad:GoogleDriveApplicationScope>
-    <ui:ForEachFileX DisplayName="For Each File in Folder" Filter="*.xlsx" Folder="Files" sap:VirtualizedContainerService.HintSize="672,542" sap2010:WorkflowViewState.IdRef="ForEachFileX_2" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="True">
+    <ui:ForEachFileX DisplayName="For Each File in Folder" Filter="*.xlsx" Folder="Files" sap:VirtualizedContainerService.HintSize="672,912" sap2010:WorkflowViewState.IdRef="ForEachFileX_2" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="True">
       <ui:ForEachFileX.Body>
         <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
           <ActivityAction.Argument1>
@@ -244,23 +250,29 @@
           <ActivityAction.Argument2>
             <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
           </ActivityAction.Argument2>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="539,292" sap2010:WorkflowViewState.IdRef="Sequence_13">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="539,662" sap2010:WorkflowViewState.IdRef="Sequence_13">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[File.Name]" sap:VirtualizedContainerService.HintSize="497,204" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+            <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[File.Name]" sap:VirtualizedContainerService.HintSize="497,574" sap2010:WorkflowViewState.IdRef="Switch`1_1">
               <Switch.Default>
                 <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Trace" Message="[&quot;File unnecessary.&quot;]" />
               </Switch.Default>
-              <Sequence x:Key="Parámetros de negocio.xlsx" sap:VirtualizedContainerService.HintSize="524,364" sap2010:WorkflowViewState.IdRef="Sequence_17">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Sequence x:Key="Parámetros de negocio.xlsx" sap:VirtualizedContainerService.HintSize="400,324" sap2010:WorkflowViewState.IdRef="Sequence_17">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:LogMessage sap:VirtualizedContainerService.HintSize="482,52" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Trace" Message="[&quot;Creating out_DtbParametrosDeNegocio datatable.&quot;]">
+                <ui:LogMessage sap:VirtualizedContainerService.HintSize="358,52" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Trace" Message="[&quot;Creating out_DtbParametrosDeNegocio datatable.&quot;]">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -268,7 +280,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:LogMessage>
-                <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[out_DtbParametrosDeNegocio]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="482,52" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Notificaciones" WorkbookPath="[File.FullName]">
+                <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[out_DtbParametrosDeNegocio]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="358,52" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Notificaciones" WorkbookPath="[File.FullName]">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -276,7 +288,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:ReadRange>
-                <If Condition="[out_DtbParametrosDeNegocio.Columns.Contains(&quot;Nombre&quot;) And _&#xA;out_DtbParametrosDeNegocio.Columns.Contains(&quot;Value&quot;)]" sap:VirtualizedContainerService.HintSize="482,52" sap2010:WorkflowViewState.IdRef="If_2">
+                <If Condition="[out_DtbParametrosDeNegocio.Columns.Contains(&quot;Nombre&quot;) And _&#xA;out_DtbParametrosDeNegocio.Columns.Contains(&quot;Value&quot;)]" sap:VirtualizedContainerService.HintSize="358,52" sap2010:WorkflowViewState.IdRef="If_2">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -313,7 +325,7 @@
                   </If.Else>
                 </If>
               </Sequence>
-              <Sequence x:Key="Asignación de descansos.xlsx" sap:VirtualizedContainerService.HintSize="524,364" sap2010:WorkflowViewState.IdRef="Sequence_18">
+              <Sequence x:Key="Asignación de descansos.xlsx" sap:VirtualizedContainerService.HintSize="524,400" sap2010:WorkflowViewState.IdRef="Sequence_18">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="s:String[]" Name="vVecColumns" />
                 </Sequence.Variables>
@@ -375,7 +387,7 @@
                   </If.Else>
                 </If>
               </Sequence>
-              <Sequence x:Key="BD Personas.xlsx" sap:VirtualizedContainerService.HintSize="520,1604" sap2010:WorkflowViewState.IdRef="Sequence_19">
+              <Sequence x:Key="BD Personas.xlsx" sap:VirtualizedContainerService.HintSize="520,1640" sap2010:WorkflowViewState.IdRef="Sequence_19">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -496,7 +508,7 @@
                   </If.Else>
                 </If>
               </Sequence>
-              <Sequence x:Key="Plantilla Asignacion.xlsx" sap:VirtualizedContainerService.HintSize="524,999" sap2010:WorkflowViewState.IdRef="Sequence_20">
+              <Sequence x:Key="Plantilla Asignacion.xlsx" sap:VirtualizedContainerService.HintSize="524,1035" sap2010:WorkflowViewState.IdRef="Sequence_20">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>

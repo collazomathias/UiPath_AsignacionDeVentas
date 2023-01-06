@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="678.6666666666666,1223.3333333333333" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="976,827" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="54">
       <x:String>System.Activities</x:String>
@@ -78,7 +78,7 @@
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="500,1158.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="421,507" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="vDtbParametrosDeNegocio" />
       <Variable x:TypeArguments="sd:DataTable" Name="vDtbAsignacionDeDescansos" />
@@ -91,7 +91,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Validaciones\ValidarInsumos.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="458,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Validaciones\ValidarInsumos.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Validaciones\ValidarInsumos.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Validaciones\ValidarInsumos.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_StrURLArchivos">https://drive.google.com/drive/folders/16p7lIOVjPhdnxlZTGTnVjricfsAS0pv_</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_StrURLNegocio">
@@ -103,71 +103,31 @@
         <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_DtbPlantillaAsignacion">[vDtbPlantillaAsignacion]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Utiles\ExtraerInformacionPagosComision.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="458,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Utiles\ExtraerInformacionPagosComision.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Utiles\ExtraerInformacionPagosComision.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Utiles\ExtraerInformacionPagosComision.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_StrURLNegocio">https://cloud.uipath.com/sofkalzxliqn/apps_/default/run/default/ID622d0f5777f848d5a49009b7a442a14d</InArgument>
         <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_DtbPagosComision">[vDtbPagosComision]</OutArgument>
         <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtbParametrosDeNegocio">[vDtbParametrosDeNegocio]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Procesos\AsignarCampañaOperario_3.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="458,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Procesos\AsignarCampañaOperario_3.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Procesos\AsignarCampañaOperario_4.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Procesos\AsignarCampañaOperario_4.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtbBDPersonas">
-          <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="vDtbDBPersonas" />
-        </InArgument>
         <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtbAsignacionDeDescansos">
           <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="vDtbAsignacionDeDescansos" />
         </InArgument>
         <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtbPlantillaAsignacion">
           <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="vDtbPlantillaAsignacion" />
         </InArgument>
-        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtbPagosComision">
-          <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="vDtbPagosComision" />
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtbBDPersonas">
+          <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="vDtbDBPersonas" />
         </InArgument>
         <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtbParametrosDeNegocio">
           <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="vDtbParametrosDeNegocio" />
         </InArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtbInformacionPagosComision">
+          <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="vDtbPagosComision" />
+        </InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="458,282.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_2">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="421.3333333333333,202.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_3">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Procesos\AsignarCampañaOperario_2.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379.3333333333333,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Procesos\AsignarCampañaOperario_2.xaml">
-            <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtbBDPersonas">[vDtbDBPersonas]</InArgument>
-              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtbAsignacionDeDescansos">[vDtbAsignacionDeDescansos]</InArgument>
-              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtbPlantillaAsignacion">[vDtbPlantillaAsignacion]</InArgument>
-              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtbPagosComision">[vDtbPagosComision]</InArgument>
-              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtbParametrosDeNegocio">[vDtbParametrosDeNegocio]</InArgument>
-            </ui:InvokeWorkflowFile.Arguments>
-          </ui:InvokeWorkflowFile>
-        </Sequence>
-      </ui:CommentOut.Body>
-    </ui:CommentOut>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="458,282.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="421.3333333333333,202.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_2">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Procesos\AsignarCampañaOperario.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379.3333333333333,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Procesos\AsignarCampañaOperario.xaml">
-            <ui:InvokeWorkflowFile.Arguments>
-              <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_DtbDBPersonas">[vDtbDBPersonas]</InOutArgument>
-              <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_DtbAsignacionDeDescansos">[vDtbAsignacionDeDescansos]</InOutArgument>
-              <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_DtbPlanillaAsignacion">[vDtbPlantillaAsignacion]</InOutArgument>
-              <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_DtbPagosComision">[vDtbPagosComision]</InOutArgument>
-              <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_DtbParametrosDeNegocio">[vDtbParametrosDeNegocio]</InOutArgument>
-            </ui:InvokeWorkflowFile.Arguments>
-          </ui:InvokeWorkflowFile>
-        </Sequence>
-      </ui:CommentOut.Body>
-    </ui:CommentOut>
   </Sequence>
 </Activity>
