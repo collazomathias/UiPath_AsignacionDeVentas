@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="976,827" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1016,827" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="54">
       <x:String>System.Activities</x:String>
@@ -78,7 +78,7 @@
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="421,507" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="421,660" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="vDtbParametrosDeNegocio" />
       <Variable x:TypeArguments="sd:DataTable" Name="vDtbAsignacionDeDescansos" />
@@ -110,22 +110,28 @@
         <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtbParametrosDeNegocio">[vDtbParametrosDeNegocio]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Procesos\AsignarCampañaOperario_4.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Procesos\AsignarCampañaOperario_4.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="AsignarCampañaOperario.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Procesos\AsignarCampañaOperario.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtbAsignacionDeDescansos">
-          <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="vDtbAsignacionDeDescansos" />
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtbAsignacionDeDescansos">[vDtbAsignacionDeDescansos]</InArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtbPlantillaAsignacion">[vDtbPlantillaAsignacion]</InArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtbBDPersonas">[vDtbDBPersonas]</InArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtbParametrosDeNegocio">[vDtbParametrosDeNegocio]</InArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtbInformacionPagosComision">[vDtbPagosComision]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Notificaciones\EjecucionExitosa.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Notificaciones\EjecucionExitosa.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_StrCuerpoMensaje">
+          <Literal x:TypeArguments="x:String">El robot Proceso de Asignación de ventas finalizó su ejecución exitosamente. Revisar detalle en el archivo de trazabilidad adjuntado en el cuerpo del correo.</Literal>
         </InArgument>
-        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtbPlantillaAsignacion">
-          <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="vDtbPlantillaAsignacion" />
+        <InArgument x:TypeArguments="x:String" x:Key="in_StrAsuntoMensaje">
+          <Literal x:TypeArguments="x:String">Finalización exitosa del robot Asignación de ventas.</Literal>
         </InArgument>
-        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtbBDPersonas">
-          <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="vDtbDBPersonas" />
+        <InArgument x:TypeArguments="x:String" x:Key="in_StrDestinatario">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="vDtbParametrosDeNegocio.Rows(1).Item(&quot;Value&quot;).ToString" />
         </InArgument>
-        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtbParametrosDeNegocio">
-          <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="vDtbParametrosDeNegocio" />
-        </InArgument>
-        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DtbInformacionPagosComision">
-          <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="vDtbPagosComision" />
+        <InArgument x:TypeArguments="x:String" x:Key="in_StrDestinatario_CC">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="vDtbParametrosDeNegocio.Rows(2).Item(&quot;Value&quot;).ToString" />
         </InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
