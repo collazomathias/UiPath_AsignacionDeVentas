@@ -8,7 +8,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>972,829</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>976,826</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ErrorDeNegocio_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="64">
@@ -92,7 +92,7 @@
       <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ErrorDeNegocio" sap:VirtualizedContainerService.HintSize="480,764" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ErrorDeNegocio" sap:VirtualizedContainerService.HintSize="480,761" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="vStrUsername" />
       <Variable x:TypeArguments="ss:SecureString" Name="vScrPassword" />
@@ -102,20 +102,20 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,676" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,673" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="400,448" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence sap:VirtualizedContainerService.HintSize="400,445" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:GetRobotCredential AssetName="CredentialsNotificacion" CacheStrategy="None" DisplayName="Get Credential" FolderPath="collazo.mathias.rpa@gmail.com's workspace" sap:VirtualizedContainerService.HintSize="358,168" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[vScrPassword]" Username="[vStrUsername]">
+          <ui:GetRobotCredential AssetName="NotificationCredentials" CacheStrategy="None" DisplayName="Get Credential" FolderPath="collazo.mathias.rpa@gmail.com's workspace" sap:VirtualizedContainerService.HintSize="358,168" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[vScrPassword]" Username="[vStrUsername]">
             <ui:GetRobotCredential.TimeoutMS>
               <InArgument x:TypeArguments="x:Int32" />
             </ui:GetRobotCredential.TimeoutMS>
           </ui:GetRobotCredential>
-          <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" Body="[in_StrCuerpoMensaje]" DisplayName="Send SMTP Mail Message" Email="[vStrUsername]" EnableSSL="True" From="mathias.collazo@sofka.com.co" sap:VirtualizedContainerService.HintSize="358,152" sap2010:WorkflowViewState.IdRef="SendMail_1" IgnoreCRL="False" IsBodyHtml="False" Name="Mathías Collazo" Port="465" SecureConnection="Auto" SecurePassword="[vScrPassword]" Server="smtp.gmail.com" Subject="[in_StrAsuntoMensaje + &quot; &quot; + in_StrInsumo]" To="[in_StrDestinatario]">
+          <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" Body="[in_StrCuerpoMensaje]" DisplayName="Send SMTP Mail Message" Email="[vStrUsername]" EnableSSL="True" From="mathias.collazo@sofka.com.co" sap:VirtualizedContainerService.HintSize="358,149" sap2010:WorkflowViewState.IdRef="SendMail_1" IgnoreCRL="False" IsBodyHtml="False" Name="Mathías Collazo" Port="465" SecureConnection="Auto" SecurePassword="[vScrPassword]" Server="smtp.gmail.com" Subject="[in_StrAsuntoMensaje + &quot; &quot; + in_StrInsumo]" To="[in_StrDestinatario]">
             <ui:SendMail.Files>
               <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
             </ui:SendMail.Files>

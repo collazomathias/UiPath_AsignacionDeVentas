@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="ValidarInsumos" this:ValidarInsumos.in_StrURLArchivos="https://drive.google.com/drive/folders/16p7lIOVjPhdnxlZTGTnVjricfsAS0pv_" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:gadvd="clr-namespace:Google.Apis.Drive.v3.Data;assembly=Google.Apis.Drive.v3" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:uga="clr-namespace:UiPath.GSuite.Activities;assembly=UiPath.GSuite.Activities" xmlns:ugad="clr-namespace:UiPath.GSuite.Activities.Drive;assembly=UiPath.GSuite.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="ValidarInsumos" this:ValidarInsumos.in_StrURLArchivos="https://drive.google.com/drive/folders/16p7lIOVjPhdnxlZTGTnVjricfsAS0pv_" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:gadvd="clr-namespace:Google.Apis.Drive.v3.Data;assembly=Google.Apis.Drive.v3" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:uga="clr-namespace:UiPath.GSuite.Activities;assembly=UiPath.GSuite.Activities" xmlns:ugad="clr-namespace:UiPath.GSuite.Activities.Drive;assembly=UiPath.GSuite.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_StrURLArchivos" Type="InArgument(x:String)" />
     <x:Property Name="in_StrURLNegocio" Type="InArgument(x:String)" />
@@ -10,10 +10,10 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>976,2707</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>976,5467</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ValidarInsumos_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="55">
+    <scg:List x:TypeArguments="x:String" Capacity="56">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -69,10 +69,11 @@
       <x:String>UiPath.Excel.Activities.Business</x:String>
       <x:String>UiPath.Excel.Activities</x:String>
       <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="65">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="132">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>System.Private.CoreLib</AssemblyReference>
@@ -137,18 +138,30 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ValidarInsumos" sap:VirtualizedContainerService.HintSize="714,2642" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ValidarInsumos" sap:VirtualizedContainerService.HintSize="813,5402" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="vStrCorreoNotificacionSoporte" />
+      <Variable x:TypeArguments="s:String[]" Name="vVecFileNames" />
+      <Variable x:TypeArguments="s:String[]" Name="vVecDiasSemana" />
+      <Variable x:TypeArguments="s:String[]" Name="vVecColumnasPlantilla" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:GetRobotAsset AssetName="CorreosNotificacionSoporte" CacheStrategy="None" DisplayName="Get Asset" FolderPath="collazo.mathias.rpa@gmail.com's workspace" sap:VirtualizedContainerService.HintSize="672,52" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
+    <ui:GetRobotAsset AssetName="CorreosNotificacionSoporte" CacheStrategy="None" DisplayName="Get Asset" FolderPath="collazo.mathias.rpa@gmail.com's workspace" sap:VirtualizedContainerService.HintSize="771,52" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
       <ui:GetRobotAsset.TimeoutMS>
         <InArgument x:TypeArguments="x:Int32" />
       </ui:GetRobotAsset.TimeoutMS>
@@ -162,13 +175,37 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:GetRobotAsset>
-    <ugad:GoogleDriveApplicationScope ContinueOnError="{x:Null}" Timeout="{x:Null}" Account="mathias.collazo@sofka.com.co" ConnectionAccountName="mathias.collazo@sofka.com.co" ConnectionId="b26d0b05-1885-ed11-ac20-0050f29e0988" DisplayName="Use Google Drive" sap:VirtualizedContainerService.HintSize="672,1510" sap2010:WorkflowViewState.IdRef="GoogleDriveApplicationScope_3" UseConnectionService="True" UserEmail="mathias.collazo@sofka.com.co">
+    <Assign sap:VirtualizedContainerService.HintSize="771,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="s:String[]">[vVecFileNames]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="s:String[]">[new String(){"Parámetros de negocio.xlsx", "Asignación de descansos.xlsx", "BD Personas.xlsx", "Plantilla Asignacion.xlsx"}]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="771,82" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="s:String[]">[vVecDiasSemana]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="s:String[]">[new String(){"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"}]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="771,82" sap2010:WorkflowViewState.IdRef="Assign_3">
+      <Assign.To>
+        <OutArgument x:TypeArguments="s:String[]">[vVecColumnasPlantilla]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="s:String[]">[new String(){"Nombre", "Tipo documento", "Numero documento", "Edad", "Sexo", "Campaña", "Dia", "Grupo", "Folio", "Comision"}]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ugad:GoogleDriveApplicationScope ContinueOnError="{x:Null}" Timeout="{x:Null}" Account="mathias.collazo@sofka.com.co" ConnectionAccountName="mathias.collazo@sofka.com.co" ConnectionId="b26d0b05-1885-ed11-ac20-0050f29e0988" DisplayName="Use Google Drive" sap:VirtualizedContainerService.HintSize="771,1464" sap2010:WorkflowViewState.IdRef="GoogleDriveApplicationScope_3" UseConnectionService="True" UserEmail="mathias.collazo@sofka.com.co">
       <ugad:GoogleDriveApplicationScope.Body>
         <ActivityAction x:TypeArguments="ugad:IGoogleDriveTarget">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ugad:IGoogleDriveTarget" Name="GoogleDrive" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="638,1368" sap2010:WorkflowViewState.IdRef="Sequence_9">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="598,1322" sap2010:WorkflowViewState.IdRef="Sequence_9">
             <Sequence.Variables>
               <Variable x:TypeArguments="gadvd:File[]" Name="FilesToDownload" />
             </Sequence.Variables>
@@ -177,14 +214,14 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uga:FindFiles ContinueOnError="{x:Null}" FirstResultId="{x:Null}" AuthScopesInvalid="False" DisplayName="Find Files and Folders" DriveTarget="[GoogleDrive]" sap:VirtualizedContainerService.HintSize="576,82" sap2010:WorkflowViewState.IdRef="FindFiles_7" MaxResults="50" Result="[FilesToDownload]" SearchExpression="'16p7lIOVjPhdnxlZTGTnVjricfsAS0pv_' in parents and name contains '*'" SupportsTeamDrives="False" />
-            <ui:ForEach x:TypeArguments="gadvd:File" CurrentIndex="{x:Null}" DisplayName="For each file in drive folder" sap:VirtualizedContainerService.HintSize="576,1135" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[FilesToDownload]">
+            <uga:FindFiles ContinueOnError="{x:Null}" FirstResultId="{x:Null}" AuthScopesInvalid="False" DisplayName="Find Files and Folders" DriveTarget="[GoogleDrive]" sap:VirtualizedContainerService.HintSize="556,82" sap2010:WorkflowViewState.IdRef="FindFiles_7" MaxResults="50" Result="[FilesToDownload]" SearchExpression="'16p7lIOVjPhdnxlZTGTnVjricfsAS0pv_' in parents and name contains '*'" SupportsTeamDrives="False" />
+            <ui:ForEach x:TypeArguments="gadvd:File" CurrentIndex="{x:Null}" DisplayName="For each file in drive folder" sap:VirtualizedContainerService.HintSize="556,1112" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[FilesToDownload]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="gadvd:File">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="gadvd:File" Name="File" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="540,1009" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="520,986" sap2010:WorkflowViewState.IdRef="Sequence_10">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:Boolean" Name="vBooFileExist" />
                     </Sequence.Variables>
@@ -219,7 +256,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="358,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Downloading file: &quot; + File.Name]" />
-                          <uga:DownloadFile ContinueOnError="{x:Null}" FileFriendlyName="{x:Null}" AuthScopesInvalid="False" DisplayName="Download File" DriveTarget="[GoogleDrive]" FileId="[File.Id]" FileIdSelectionMode="EnterId" sap:VirtualizedContainerService.HintSize="358,149" sap2010:WorkflowViewState.IdRef="DownloadFile_5" LocalPath="[&quot;Files\&quot;+File.Name]" SupportsTeamDrives="False" />
+                          <uga:DownloadFile ContinueOnError="{x:Null}" FileFriendlyName="{x:Null}" AuthScopesInvalid="False" DisplayName="Download File" DriveTarget="[GoogleDrive]" FileId="[File.Id]" FileIdSelectionMode="EnterId" sap:VirtualizedContainerService.HintSize="358,149" sap2010:WorkflowViewState.IdRef="DownloadFile_6" LocalPath="[&quot;Files\&quot;+File.Name]" SupportsTeamDrives="False" />
                         </Sequence>
                       </If.Else>
                     </If>
@@ -241,175 +278,30 @@
         </InArgument>
       </ugad:GoogleDriveApplicationScope.CredentialSecret>
     </ugad:GoogleDriveApplicationScope>
-    <ui:ForEachFileX DisplayName="For Each File in Folder" Filter="*.xlsx" Folder="Files" sap:VirtualizedContainerService.HintSize="672,912" sap2010:WorkflowViewState.IdRef="ForEachFileX_2" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="True">
-      <ui:ForEachFileX.Body>
-        <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
-          <ActivityAction.Argument1>
-            <DelegateInArgument x:TypeArguments="si:FileInfo" Name="File" />
-          </ActivityAction.Argument1>
-          <ActivityAction.Argument2>
-            <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
-          </ActivityAction.Argument2>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="539,662" sap2010:WorkflowViewState.IdRef="Sequence_13">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For each file name required" sap:VirtualizedContainerService.HintSize="771,3352" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[vVecFileNames]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="x:String">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:String" Name="File" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="735,3226" sap2010:WorkflowViewState.IdRef="Sequence_31">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:Boolean" Name="vBooFileExist" />
+            </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[File.Name]" sap:VirtualizedContainerService.HintSize="497,574" sap2010:WorkflowViewState.IdRef="Switch`1_1">
-              <Switch.Default>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Trace" Message="[&quot;File unnecessary.&quot;]" />
-              </Switch.Default>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <Sequence x:Key="Parámetros de negocio.xlsx" sap:VirtualizedContainerService.HintSize="400,324" sap2010:WorkflowViewState.IdRef="Sequence_17">
+            <ui:FileExistsX DisplayName="File Exists" Exists="[vBooFileExist]" sap:VirtualizedContainerService.HintSize="693,133" sap2010:WorkflowViewState.IdRef="FileExistsX_2" Path="[&quot;Files\&quot;+File]" />
+            <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[File]" sap:VirtualizedContainerService.HintSize="693,2965" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+              <Sequence x:Key="Parámetros de negocio.xlsx" sap:VirtualizedContainerService.HintSize="617,1565" sap2010:WorkflowViewState.IdRef="Sequence_38">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:LogMessage sap:VirtualizedContainerService.HintSize="358,52" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Trace" Message="[&quot;Creating out_DtbParametrosDeNegocio datatable.&quot;]">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </ui:LogMessage>
-                <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[out_DtbParametrosDeNegocio]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="358,52" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Notificaciones" WorkbookPath="[File.FullName]">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </ui:ReadRange>
-                <If Condition="[out_DtbParametrosDeNegocio.Columns.Contains(&quot;Nombre&quot;) And _&#xA;out_DtbParametrosDeNegocio.Columns.Contains(&quot;Value&quot;)]" sap:VirtualizedContainerService.HintSize="358,52" sap2010:WorkflowViewState.IdRef="If_2">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <If.Then>
-                    <Sequence sap:VirtualizedContainerService.HintSize="400,180" sap2010:WorkflowViewState.IdRef="Sequence_21">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="358,92" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Columns verified for file: &quot;+File.Name]" />
-                    </Sequence>
-                  </If.Then>
-                  <If.Else>
-                    <Sequence sap:VirtualizedContainerService.HintSize="404,331" sap2010:WorkflowViewState.IdRef="Sequence_22">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Notificaciones\ErrorDeNegocio.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="362,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Notificaciones\ErrorDeNegocio.xaml">
-                        <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_StrInsumo">[File.Name]</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_StrCuerpoMensaje">Se presenta novedad en la ejecución del robot Proceso de Asignación de ventas. No se encontraron archivos insumo.</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_StrAsuntoMensaje">Suspensión por insumos</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_StrDestinatario">[vStrCorreoNotificacionSoporte]</InArgument>
-                        </ui:InvokeWorkflowFile.Arguments>
-                      </ui:InvokeWorkflowFile>
-                      <Throw Exception="[new Exception(&quot;Invalid columns for file: &quot;+File.Name)]" sap:VirtualizedContainerService.HintSize="362,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
-                    </Sequence>
-                  </If.Else>
-                </If>
-              </Sequence>
-              <Sequence x:Key="Asignación de descansos.xlsx" sap:VirtualizedContainerService.HintSize="524,400" sap2010:WorkflowViewState.IdRef="Sequence_18">
-                <Sequence.Variables>
-                  <Variable x:TypeArguments="s:String[]" Name="vVecColumns" />
-                </Sequence.Variables>
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:LogMessage sap:VirtualizedContainerService.HintSize="482,52" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Trace" Message="[&quot;Creating out_DtbAsignacionDeDescansos datatable.&quot;]">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </ui:LogMessage>
-                <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[out_DtbAsignacionDeDescansos]" DisplayName="Read range AsignacionDeDescansos" sap:VirtualizedContainerService.HintSize="482,52" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="Descansos" WorkbookPath="[File.FullName]">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </ui:ReadRange>
-                <If Condition="[out_DtbAsignacionDeDescansos.Columns.Contains(&quot;Lunes&quot;) And _&#xA;out_DtbAsignacionDeDescansos.Columns.Contains(&quot;Martes&quot;) And _&#xA;out_DtbAsignacionDeDescansos.Columns.Contains(&quot;Miercoles&quot;) And _&#xA;out_DtbAsignacionDeDescansos.Columns.Contains(&quot;Jueves&quot;) And _&#xA;out_DtbAsignacionDeDescansos.Columns.Contains(&quot;Viernes&quot;) And _&#xA;out_DtbAsignacionDeDescansos.Columns.Contains(&quot;Sabado&quot;)]" sap:VirtualizedContainerService.HintSize="482,52" sap2010:WorkflowViewState.IdRef="If_6">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <If.Then>
-                    <Sequence sap:VirtualizedContainerService.HintSize="400,180" sap2010:WorkflowViewState.IdRef="Sequence_23">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="358,92" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Columns verified for file: &quot;+File.Name]" />
-                    </Sequence>
-                  </If.Then>
-                  <If.Else>
-                    <Sequence sap:VirtualizedContainerService.HintSize="404,331" sap2010:WorkflowViewState.IdRef="Sequence_24">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Notificaciones\ErrorDeNegocio.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="362,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Notificaciones\ErrorDeNegocio.xaml">
-                        <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_StrInsumo">[File.Name]</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_StrCuerpoMensaje">Se presenta novedad en la ejecución del robot Proceso de Asignación de ventas. No se encontraron archivos insumo.</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_StrAsuntoMensaje">Suspensión por insumos</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_StrDestinatario">[vStrCorreoNotificacionSoporte]</InArgument>
-                        </ui:InvokeWorkflowFile.Arguments>
-                      </ui:InvokeWorkflowFile>
-                      <Throw Exception="[new Exception(&quot;Invalid columns for file: &quot;+File.Name)]" sap:VirtualizedContainerService.HintSize="362,90" sap2010:WorkflowViewState.IdRef="Throw_2" />
-                    </Sequence>
-                  </If.Else>
-                </If>
-              </Sequence>
-              <Sequence x:Key="BD Personas.xlsx" sap:VirtualizedContainerService.HintSize="520,1640" sap2010:WorkflowViewState.IdRef="Sequence_19">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:LogMessage sap:VirtualizedContainerService.HintSize="478,52" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Trace" Message="[&quot;Creating out_DtbDBPersonas datatable.&quot;]">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </ui:LogMessage>
-                <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[out_DtbDBPersonas]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="478,52" sap2010:WorkflowViewState.IdRef="ReadRange_3" SheetName="Personas" WorkbookPath="[File.FullName]">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </ui:ReadRange>
-                <If Condition="[out_DtbDBPersonas.Columns.Contains(&quot;Colaborador&quot;) AND out_DtbDBPersonas.Columns.Contains(&quot;TD&quot;) AND out_DtbDBPersonas.Columns.Contains(&quot;Identificacion&quot;) AND out_DtbDBPersonas.Columns.Contains(&quot;Genero&quot;) AND out_DtbDBPersonas.Columns.Contains(&quot;Edad&quot;)]" sap:VirtualizedContainerService.HintSize="478,626" sap2010:WorkflowViewState.IdRef="If_4">
+                <If Condition="[vBooFileExist = False]" DisplayName="If file doesn't exist" sap:VirtualizedContainerService.HintSize="575,1515" sap2010:WorkflowViewState.IdRef="If_9">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -417,160 +309,466 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <If.Then>
-                    <Sequence sap:VirtualizedContainerService.HintSize="400,180" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                    <Sequence sap:VirtualizedContainerService.HintSize="404,331" sap2010:WorkflowViewState.IdRef="Sequence_36">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="358,92" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Columns verified for file: &quot;+File.Name]" />
-                    </Sequence>
-                  </If.Then>
-                  <If.Else>
-                    <Sequence sap:VirtualizedContainerService.HintSize="400,270" sap2010:WorkflowViewState.IdRef="Sequence_26">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Notificaciones\ErrorDeNegocio.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="358,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Notificaciones\ErrorDeNegocio.xaml">
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Notificaciones\ErrorDeNegocio.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="362,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Notificaciones\ErrorDeNegocio.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_StrInsumo">[File.Name]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_StrInsumo">[File]</InArgument>
                           <InArgument x:TypeArguments="x:String" x:Key="in_StrCuerpoMensaje">Se presenta novedad en la ejecución del robot Proceso de Asignación de ventas. No se encontraron archivos insumo.</InArgument>
                           <InArgument x:TypeArguments="x:String" x:Key="in_StrAsuntoMensaje">Suspensión por insumos</InArgument>
                           <InArgument x:TypeArguments="x:String" x:Key="in_StrDestinatario">[vStrCorreoNotificacionSoporte]</InArgument>
                         </ui:InvokeWorkflowFile.Arguments>
+                      </ui:InvokeWorkflowFile>
+                      <Throw Exception="[New Exception(&quot;File '&quot;+File+&quot;' doesn't exist.&quot;)]" sap:VirtualizedContainerService.HintSize="362,90" sap2010:WorkflowViewState.IdRef="Throw_7" />
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence sap:VirtualizedContainerService.HintSize="497,968" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="455,52" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Trace" Message="[&quot;Creating out_DtbParametrosDeNegocio datatable.&quot;]">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                      </ui:InvokeWorkflowFile>
-                      <Throw Exception="[new Exception(&quot;Invalid columns for file: &quot;+File.Name)]" sap:VirtualizedContainerService.HintSize="358,90" sap2010:WorkflowViewState.IdRef="Throw_3">
+                      </ui:LogMessage>
+                      <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[out_DtbParametrosDeNegocio]" DisplayName="Read range Parámetros de negocio.xlsx" sap:VirtualizedContainerService.HintSize="455,88" sap2010:WorkflowViewState.IdRef="ReadRange_5" SheetName="Notificaciones" WorkbookPath="[&quot;Files\&quot;+File]">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                      </Throw>
-                    </Sequence>
-                  </If.Else>
-                </If>
-                <If Condition="[out_DtbDBPersonas.RowCount &gt;= 100]" sap:VirtualizedContainerService.HintSize="478,626" sap2010:WorkflowViewState.IdRef="If_7">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <If.Then>
-                    <Sequence sap:VirtualizedContainerService.HintSize="400,180" sap2010:WorkflowViewState.IdRef="Sequence_29">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="358,92" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;Data verified for file: &quot;+File.Name]" />
-                    </Sequence>
-                  </If.Then>
-                  <If.Else>
-                    <Sequence sap:VirtualizedContainerService.HintSize="400,270" sap2010:WorkflowViewState.IdRef="Sequence_30">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Notificaciones\ErrorDeNegocio.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="358,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Notificaciones\ErrorDeNegocio.xaml">
-                        <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_StrInsumo">[File.Name]</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_StrCuerpoMensaje">Se presenta novedad en la ejecución del robot Proceso de Asignación de ventas. No se encontraron archivos insumo.</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_StrAsuntoMensaje">Suspensión por insumos</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_StrDestinatario">[vStrCorreoNotificacionSoporte]</InArgument>
-                        </ui:InvokeWorkflowFile.Arguments>
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                      </ui:InvokeWorkflowFile>
-                      <Throw Exception="[new Exception(&quot;Invalid columns for file: &quot;+File.Name)]" sap:VirtualizedContainerService.HintSize="358,90" sap2010:WorkflowViewState.IdRef="Throw_5">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                      </Throw>
+                      </ui:ReadRange>
+                      <ui:IfElseIf DisplayName="If" sap:VirtualizedContainerService.HintSize="455,528" sap2010:WorkflowViewState.IdRef="IfElseIf_1">
+                        <ui:IfElseIf.ConditionBlocks>
+                          <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                            <ui:IfElseIfBlock BlockType="If" Condition="[Not out_DtbParametrosDeNegocio.Columns.Contains(&quot;Nombre&quot;) Or _&#xA;Not out_DtbParametrosDeNegocio.Columns.Contains(&quot;Value&quot;) Or _&#xA;out_DtbParametrosDeNegocio.Rows(0).Item(&quot;Value&quot;).ToString.Length &lt;= 0 Or _&#xA;out_DtbParametrosDeNegocio.Rows(1).Item(&quot;Value&quot;).ToString.Length &lt;= 0 Or _&#xA;out_DtbParametrosDeNegocio.Rows(2).Item(&quot;Value&quot;).ToString.Length &lt;= 0]">
+                              <ui:IfElseIfBlock.Then>
+                                <Sequence sap:VirtualizedContainerService.HintSize="404,331" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Notificaciones\ErrorDeNegocio.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="362,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Notificaciones\ErrorDeNegocio.xaml">
+                                    <ui:InvokeWorkflowFile.Arguments>
+                                      <InArgument x:TypeArguments="x:String" x:Key="in_StrInsumo">[File]</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="in_StrCuerpoMensaje">Se presenta novedad en la ejecución del robot Proceso de Asignación de ventas. No se encontraron archivos insumo.</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="in_StrAsuntoMensaje">Suspensión por insumos</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="in_StrDestinatario">[vStrCorreoNotificacionSoporte]</InArgument>
+                                    </ui:InvokeWorkflowFile.Arguments>
+                                  </ui:InvokeWorkflowFile>
+                                  <Throw Exception="[New Exception(&quot;'Value' parameter in 'Parámetros de negocio.xlsx' doesn't exist.&quot;)]" sap:VirtualizedContainerService.HintSize="362,90" sap2010:WorkflowViewState.IdRef="Throw_8" />
+                                </Sequence>
+                              </ui:IfElseIfBlock.Then>
+                            </ui:IfElseIfBlock>
+                          </sc:BindingList>
+                        </ui:IfElseIf.ConditionBlocks>
+                      </ui:IfElseIf>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="455,92" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Trace" Message="[&quot;File '&quot;+File+&quot;' verified.&quot;]" />
                     </Sequence>
                   </If.Else>
                 </If>
               </Sequence>
-              <Sequence x:Key="Plantilla Asignacion.xlsx" sap:VirtualizedContainerService.HintSize="524,1035" sap2010:WorkflowViewState.IdRef="Sequence_20">
+              <If x:Key="Asignación de descansos.xlsx" Condition="[vBooFileExist = False]" DisplayName="If file doesn't exist" sap:VirtualizedContainerService.HintSize="653,2713" sap2010:WorkflowViewState.IdRef="If_10">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:LogMessage sap:VirtualizedContainerService.HintSize="482,52" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Trace" Message="[&quot;Creating out_DtbPlantillaAsignacion datatable.&quot;]">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </ui:LogMessage>
-                <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[out_DtbPlantillaAsignacion]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="482,52" sap2010:WorkflowViewState.IdRef="ReadRange_4" PreserveFormat="True" SheetName="Asignacion" WorkbookPath="[File.FullName]">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </ui:ReadRange>
-                <If Condition="[out_DtbPlantillaAsignacion.Columns.Contains(&quot;Nombre&quot;) And _&#xA;out_DtbPlantillaAsignacion.Columns.Contains(&quot;Tipo documento&quot;) And _&#xA;out_DtbPlantillaAsignacion.Columns.Contains(&quot;Numero documento&quot;) And _&#xA;out_DtbPlantillaAsignacion.Columns.Contains(&quot;Edad&quot;) And _&#xA;out_DtbPlantillaAsignacion.Columns.Contains(&quot;Sexo&quot;) And _&#xA;out_DtbPlantillaAsignacion.Columns.Contains(&quot;Campaña&quot;) And _&#xA;out_DtbPlantillaAsignacion.Columns.Contains(&quot;Dia&quot;) And _&#xA;out_DtbPlantillaAsignacion.Columns.Contains(&quot;Grupo&quot;) And _&#xA;out_DtbPlantillaAsignacion.Columns.Contains(&quot;Folio&quot;) And _&#xA;out_DtbPlantillaAsignacion.Columns.Contains(&quot;Comision&quot;)]" sap:VirtualizedContainerService.HintSize="482,687" sap2010:WorkflowViewState.IdRef="If_5">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <If.Then>
-                    <Sequence sap:VirtualizedContainerService.HintSize="400,180" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                <If.Then>
+                  <Sequence sap:VirtualizedContainerService.HintSize="404,331" sap2010:WorkflowViewState.IdRef="Sequence_40">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Notificaciones\ErrorDeNegocio.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="362,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Notificaciones\ErrorDeNegocio.xaml">
+                      <ui:InvokeWorkflowFile.Arguments>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_StrInsumo">[File]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_StrCuerpoMensaje">Se presenta novedad en la ejecución del robot Proceso de Asignación de ventas. No se encontraron archivos insumo.</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_StrAsuntoMensaje">Suspensión por insumos</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_StrDestinatario">[out_DtbParametrosDeNegocio.Rows(0).Item("Value").ToString]</InArgument>
+                      </ui:InvokeWorkflowFile.Arguments>
+                    </ui:InvokeWorkflowFile>
+                    <Throw Exception="[New Exception(&quot;File '&quot;+File+&quot;' doesn't exist.&quot;)]" sap:VirtualizedContainerService.HintSize="362,90" sap2010:WorkflowViewState.IdRef="Throw_9" />
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence sap:VirtualizedContainerService.HintSize="575,2206" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="533,52" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Trace" Message="[&quot;Creating out_DtbParametrosDeNegocio datatable.&quot;]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:LogMessage>
+                    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[out_DtbAsignacionDeDescansos]" DisplayName="Read range Asignación de descansos.xlsx" sap:VirtualizedContainerService.HintSize="533,88" sap2010:WorkflowViewState.IdRef="ReadRange_7" SheetName="Descansos" WorkbookPath="[&quot;Files\&quot;+File]">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="358,92" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Columns verified for file: &quot;+File.Name]" />
-                    </Sequence>
-                  </If.Then>
-                  <If.Else>
-                    <Sequence sap:VirtualizedContainerService.HintSize="404,331" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                    </ui:ReadRange>
+                    <ui:IfElseIf DisplayName="If" sap:VirtualizedContainerService.HintSize="533,528" sap2010:WorkflowViewState.IdRef="IfElseIf_2">
+                      <ui:IfElseIf.ConditionBlocks>
+                        <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                          <ui:IfElseIfBlock BlockType="If" Condition="[Not out_DtbAsignacionDeDescansos.Columns.Contains(&quot;Lunes&quot;) Or _&#xA;Not out_DtbAsignacionDeDescansos.Columns.Contains(&quot;Martes&quot;) Or _&#xA;Not out_DtbAsignacionDeDescansos.Columns.Contains(&quot;Miercoles&quot;) Or _&#xA;Not out_DtbAsignacionDeDescansos.Columns.Contains(&quot;Jueves&quot;) Or _&#xA;Not out_DtbAsignacionDeDescansos.Columns.Contains(&quot;Viernes&quot;) Or _&#xA;Not out_DtbAsignacionDeDescansos.Columns.Contains(&quot;Sabado&quot;)]">
+                            <ui:IfElseIfBlock.Then>
+                              <Sequence sap:VirtualizedContainerService.HintSize="404,331" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Notificaciones\ErrorDeNegocio.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="362,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="Notificaciones\ErrorDeNegocio.xaml">
+                                  <ui:InvokeWorkflowFile.Arguments>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_StrInsumo">[File]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_StrCuerpoMensaje">Se presenta novedad en la ejecución del robot Proceso de Asignación de ventas. No se encontraron archivos insumo.</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_StrAsuntoMensaje">Suspensión por insumos</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_StrDestinatario">[out_DtbParametrosDeNegocio.Rows(0).Item("Value").ToString]</InArgument>
+                                  </ui:InvokeWorkflowFile.Arguments>
+                                </ui:InvokeWorkflowFile>
+                                <Throw Exception="[New Exception(&quot;File '&quot;+File+&quot; has inconsistencies on columns.'&quot;)]" sap:VirtualizedContainerService.HintSize="362,90" sap2010:WorkflowViewState.IdRef="Throw_10" />
+                              </Sequence>
+                            </ui:IfElseIfBlock.Then>
+                          </ui:IfElseIfBlock>
+                        </sc:BindingList>
+                      </ui:IfElseIf.ConditionBlocks>
+                    </ui:IfElseIf>
+                    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="533,1198" sap2010:WorkflowViewState.IdRef="ForEach`1_6" Values="[vVecDiasSemana]">
+                      <ui:ForEach.Body>
+                        <ActivityAction x:TypeArguments="x:String">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="x:String" Name="Dia" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="497,1074" sap2010:WorkflowViewState.IdRef="Sequence_43">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="455,986" sap2010:WorkflowViewState.IdRef="IfElseIf_3">
+                              <ui:IfElseIf.ConditionBlocks>
+                                <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                                  <ui:IfElseIfBlock BlockType="If" Condition="[(Dia = &quot;Lunes&quot; Or Dia = &quot;Martes&quot; Or Dia = &quot;Miercoles&quot; Or Dia = &quot;Jueves&quot; Or Dia =&quot;Viernes&quot;) And _&#xD;&#xA;out_DtbAsignacionDeDescansos.AsEnumerable().Select(Function(a) a(Dia).ToString).ToArray().Where(Function(x) Not String.IsNullOrWhiteSpace(x)).ToArray().Length &gt; 10]">
+                                    <ui:IfElseIfBlock.Then>
+                                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="404,331" sap2010:WorkflowViewState.IdRef="Sequence_44">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Notificaciones\ErrorDeNegocio.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="362,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Notificaciones\ErrorDeNegocio.xaml">
+                                          <ui:InvokeWorkflowFile.Arguments>
+                                            <InArgument x:TypeArguments="x:String" x:Key="in_StrInsumo">[File]</InArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="in_StrCuerpoMensaje">["Se presenta novedad en la ejecución del robot Proceso de Asignación de ventas. Por favor validar la plantilla 'Asignación de descanso.xlsx'. Se encontró una inconsistencia para el día "+Dia+"."]</InArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="in_StrAsuntoMensaje">Suspensión por insumos</InArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="in_StrDestinatario">[out_DtbParametrosDeNegocio.Rows(0).Item("Value").ToString]</InArgument>
+                                          </ui:InvokeWorkflowFile.Arguments>
+                                        </ui:InvokeWorkflowFile>
+                                        <Throw Exception="[New Exception(&quot;File '&quot;+File+&quot; has inconsistencies in column '&quot;+Dia+&quot;'.&quot;)]" sap:VirtualizedContainerService.HintSize="362,90" sap2010:WorkflowViewState.IdRef="Throw_13" />
+                                      </Sequence>
+                                    </ui:IfElseIfBlock.Then>
+                                  </ui:IfElseIfBlock>
+                                  <ui:IfElseIfBlock BlockType="ElseIf" Condition="[Dia = &quot;Sabado&quot; And _&#xD;&#xA;out_DtbAsignacionDeDescansos.AsEnumerable().Select(Function(a) a(Dia).ToString).ToArray().Where(Function(x) Not String.IsNullOrWhiteSpace(x)).ToArray().Length &gt; 50]">
+                                    <ui:IfElseIfBlock.Then>
+                                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="404,331" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Notificaciones\ErrorDeNegocio.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="362,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Notificaciones\ErrorDeNegocio.xaml">
+                                          <ui:InvokeWorkflowFile.Arguments>
+                                            <InArgument x:TypeArguments="x:String" x:Key="in_StrInsumo">[File]</InArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="in_StrCuerpoMensaje">["Se presenta novedad en la ejecución del robot Proceso de Asignación de ventas. Por favor validar la plantilla 'Asignación de descanso.xlsx'. Se encontró una inconsistencia para el día "+Dia+"."]</InArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="in_StrAsuntoMensaje">Suspensión por insumos</InArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="in_StrDestinatario">[out_DtbParametrosDeNegocio.Rows(0).Item("Value").ToString]</InArgument>
+                                          </ui:InvokeWorkflowFile.Arguments>
+                                        </ui:InvokeWorkflowFile>
+                                        <Throw Exception="[New Exception(&quot;File '&quot;+File+&quot; has inconsistencies in column '&quot;+Dia+&quot;'.&quot;)]" sap:VirtualizedContainerService.HintSize="362,90" sap2010:WorkflowViewState.IdRef="Throw_12" />
+                                      </Sequence>
+                                    </ui:IfElseIfBlock.Then>
+                                  </ui:IfElseIfBlock>
+                                </sc:BindingList>
+                              </ui:IfElseIf.ConditionBlocks>
+                            </ui:IfElseIf>
+                          </Sequence>
+                        </ActivityAction>
+                      </ui:ForEach.Body>
+                    </ui:ForEach>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="533,92" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Trace" Message="[&quot;File '&quot;+File+&quot;' verified.&quot;]" />
+                  </Sequence>
+                </If.Else>
+              </If>
+              <If x:Key="BD Personas.xlsx" Condition="[vBooFileExist = False]" DisplayName="If file doesn't exist" sap:VirtualizedContainerService.HintSize="602,2361" sap2010:WorkflowViewState.IdRef="If_11">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If.Then>
+                  <Sequence sap:VirtualizedContainerService.HintSize="404,331" sap2010:WorkflowViewState.IdRef="Sequence_46">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Notificaciones\ErrorDeNegocio.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="362,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="Notificaciones\ErrorDeNegocio.xaml">
+                      <ui:InvokeWorkflowFile.Arguments>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_StrInsumo">[File]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_StrCuerpoMensaje">Se presenta novedad en la ejecución del robot Proceso de Asignación de ventas. No se encontraron archivos insumo.</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_StrAsuntoMensaje">Suspensión por insumos</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_StrDestinatario">[out_DtbParametrosDeNegocio.Rows(0).Item("Value").ToString]</InArgument>
+                      </ui:InvokeWorkflowFile.Arguments>
+                    </ui:InvokeWorkflowFile>
+                    <Throw Exception="[New Exception(&quot;File '&quot;+File+&quot;' doesn't exist.&quot;)]" sap:VirtualizedContainerService.HintSize="358,90" sap2010:WorkflowViewState.IdRef="Throw_14" />
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence sap:VirtualizedContainerService.HintSize="524,1854" sap2010:WorkflowViewState.IdRef="Sequence_54">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="482,52" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="Trace" Message="[&quot;Creating out_DtbDBPersonas datatable.&quot;]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:LogMessage>
+                    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[out_DtbDBPersonas]" DisplayName="Read range BD Personas.xlsx" sap:VirtualizedContainerService.HintSize="482,88" sap2010:WorkflowViewState.IdRef="ReadRange_8" SheetName="Personas" WorkbookPath="[&quot;Files\&quot;+File]">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Notificaciones\ErrorDeNegocio.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="362,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Notificaciones\ErrorDeNegocio.xaml">
-                        <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_StrInsumo">[File.Name]</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_StrCuerpoMensaje">Se presenta novedad en la ejecución del robot Proceso de Asignación de ventas. No se encontraron archivos insumo.</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_StrAsuntoMensaje">Suspensión por insumos</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_StrDestinatario">[vStrCorreoNotificacionSoporte]</InArgument>
-                        </ui:InvokeWorkflowFile.Arguments>
-                      </ui:InvokeWorkflowFile>
-                      <Throw Exception="[new Exception(&quot;Invalid columns for file: &quot;+File.Name)]" sap:VirtualizedContainerService.HintSize="362,90" sap2010:WorkflowViewState.IdRef="Throw_4" />
-                    </Sequence>
-                  </If.Else>
-                </If>
-              </Sequence>
+                    </ui:ReadRange>
+                    <If Condition="[out_DtbDBPersonas.Columns.Contains(&quot;Colaborador&quot;) AND out_DtbDBPersonas.Columns.Contains(&quot;TD&quot;) AND out_DtbDBPersonas.Columns.Contains(&quot;Identificacion&quot;) AND out_DtbDBPersonas.Columns.Contains(&quot;Genero&quot;) AND out_DtbDBPersonas.Columns.Contains(&quot;Edad&quot;)]" sap:VirtualizedContainerService.HintSize="482,687" sap2010:WorkflowViewState.IdRef="If_12">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <If.Then>
+                        <Sequence sap:VirtualizedContainerService.HintSize="400,180" sap2010:WorkflowViewState.IdRef="Sequence_47">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="358,92" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="Info" Message="[&quot;Columns verified for file: &quot;+File+&quot;.&quot;]" />
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence sap:VirtualizedContainerService.HintSize="404,331" sap2010:WorkflowViewState.IdRef="Sequence_48">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Notificaciones\ErrorDeNegocio.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="362,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="Notificaciones\ErrorDeNegocio.xaml">
+                            <ui:InvokeWorkflowFile.Arguments>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_StrInsumo">[File]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_StrCuerpoMensaje">Se presenta novedad en la ejecución del robot Proceso de Asignación de ventas. No se encontraron archivos insumo.</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_StrAsuntoMensaje">Suspensión por insumos</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_StrDestinatario">[out_DtbParametrosDeNegocio.Rows(0).Item("Value").ToString]</InArgument>
+                            </ui:InvokeWorkflowFile.Arguments>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:InvokeWorkflowFile>
+                          <Throw Exception="[new Exception(&quot;Invalid columns for file: &quot;+File+&quot;.&quot;)]" sap:VirtualizedContainerService.HintSize="362,90" sap2010:WorkflowViewState.IdRef="Throw_18">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Throw>
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                    <If Condition="[out_DtbDBPersonas.RowCount &gt;= 100]" sap:VirtualizedContainerService.HintSize="482,687" sap2010:WorkflowViewState.IdRef="If_13">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <If.Then>
+                        <Sequence sap:VirtualizedContainerService.HintSize="400,180" sap2010:WorkflowViewState.IdRef="Sequence_49">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="358,92" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="Trace" Message="[&quot;Data verified for file: &quot;+File+&quot;.&quot;]" />
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence sap:VirtualizedContainerService.HintSize="404,331" sap2010:WorkflowViewState.IdRef="Sequence_50">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Notificaciones\ErrorDeNegocio.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="362,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="Notificaciones\ErrorDeNegocio.xaml">
+                            <ui:InvokeWorkflowFile.Arguments>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_StrInsumo">[File]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_StrCuerpoMensaje">Se presenta novedad en la ejecución del robot Proceso de Asignación de ventas. No se encontraron archivos insumo.</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_StrAsuntoMensaje">Suspensión por insumos</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_StrDestinatario">[out_DtbParametrosDeNegocio.Rows(0).Item("Value").ToString]</InArgument>
+                            </ui:InvokeWorkflowFile.Arguments>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:InvokeWorkflowFile>
+                          <Throw Exception="[new Exception(File+&quot; has inconsistencies on data.&quot;)]" sap:VirtualizedContainerService.HintSize="362,90" sap2010:WorkflowViewState.IdRef="Throw_19">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Throw>
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="482,92" sap2010:WorkflowViewState.IdRef="LogMessage_20" Level="Trace" Message="[&quot;File '&quot;+File+&quot;' verified.&quot;]" />
+                  </Sequence>
+                </If.Else>
+              </If>
+              <If x:Key="Plantilla Asignacion.xlsx" Condition="[vBooFileExist = False]" DisplayName="If file doesn't exist" sap:VirtualizedContainerService.HintSize="649,2033" sap2010:WorkflowViewState.IdRef="If_14">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If.Then>
+                  <Sequence sap:VirtualizedContainerService.HintSize="404,331" sap2010:WorkflowViewState.IdRef="Sequence_55">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Notificaciones\ErrorDeNegocio.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="362,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_18" UnSafe="False" WorkflowFileName="Notificaciones\ErrorDeNegocio.xaml">
+                      <ui:InvokeWorkflowFile.Arguments>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_StrInsumo">[File]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_StrCuerpoMensaje">Se presenta novedad en la ejecución del robot Proceso de Asignación de ventas. No se encontraron archivos insumo.</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_StrAsuntoMensaje">Suspensión por insumos</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_StrDestinatario">[out_DtbParametrosDeNegocio.Rows(0).Item("Value").ToString]</InArgument>
+                      </ui:InvokeWorkflowFile.Arguments>
+                    </ui:InvokeWorkflowFile>
+                    <Throw Exception="[New Exception(&quot;File '&quot;+File+&quot;' doesn't exist.&quot;)]" sap:VirtualizedContainerService.HintSize="362,90" sap2010:WorkflowViewState.IdRef="Throw_20" />
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence sap:VirtualizedContainerService.HintSize="571,1526" sap2010:WorkflowViewState.IdRef="Sequence_57">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="529,52" sap2010:WorkflowViewState.IdRef="LogMessage_21" Level="Trace" Message="[&quot;Creating out_DtbPlantillaAsignacion datatable.&quot;]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:LogMessage>
+                    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[out_DtbPlantillaAsignacion]" DisplayName="Read range Plantilla Asignacion.xlsx" sap:VirtualizedContainerService.HintSize="529,88" sap2010:WorkflowViewState.IdRef="ReadRange_9" PreserveFormat="True" SheetName="Asignacion" WorkbookPath="[&quot;Files\&quot;+File]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:ReadRange>
+                    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="529,810" sap2010:WorkflowViewState.IdRef="ForEach`1_8" Values="[vVecColumnasPlantilla]">
+                      <ui:ForEach.Body>
+                        <ActivityAction x:TypeArguments="x:String">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="x:String" Name="Columna" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="493,686" sap2010:WorkflowViewState.IdRef="Sequence_58">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="451,598" sap2010:WorkflowViewState.IdRef="IfElseIf_6">
+                              <ui:IfElseIf.ConditionBlocks>
+                                <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                                  <ui:IfElseIfBlock BlockType="If" Condition="[not out_DtbPlantillaAsignacion.Columns.Contains(Columna)]">
+                                    <ui:IfElseIfBlock.Then>
+                                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="400,402" sap2010:WorkflowViewState.IdRef="Sequence_59">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <ui:AddDataColumn x:TypeArguments="x:String" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="[Columna]" DataTable="[out_DtbPlantillaAsignacion]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="358,186" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_2" />
+                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="358,88" sap2010:WorkflowViewState.IdRef="LogMessage_23" Level="Trace" Message="[&quot;Column '&quot;+Columna+&quot;' created succesfully.&quot;]" />
+                                      </Sequence>
+                                    </ui:IfElseIfBlock.Then>
+                                  </ui:IfElseIfBlock>
+                                </sc:BindingList>
+                              </ui:IfElseIf.ConditionBlocks>
+                            </ui:IfElseIf>
+                          </Sequence>
+                        </ActivityAction>
+                      </ui:ForEach.Body>
+                    </ui:ForEach>
+                    <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="529,80" sap2010:WorkflowViewState.IdRef="DeleteFileX_1" Path="[&quot;Files\&quot;+File]" />
+                    <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[out_DtbPlantillaAsignacion]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="529,116" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Asignacion" WorkbookPath="[&quot;Files\&quot;+File]" />
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="529,92" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Trace" Message="[&quot;File '&quot;+File+&quot;' verified.&quot;]" />
+                  </Sequence>
+                </If.Else>
+              </If>
             </Switch>
           </Sequence>
         </ActivityAction>
-      </ui:ForEachFileX.Body>
-    </ui:ForEachFileX>
+      </ui:ForEach.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ForEach>
   </Sequence>
 </Activity>
